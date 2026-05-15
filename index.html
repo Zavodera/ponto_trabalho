@@ -20,8 +20,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
-/* Tokens base — SEMPRE claro por padrão, ignora tema do sistema */
+/* ── TEMA — o app controla tudo, ignora preferência do sistema ── */
 :root {
+  color-scheme: light; /* força modo claro no browser */
   --red:#FF385C; --red-light:#FF6B81; --red-pale:#FFF0F2; --red-dark:#D93025;
   --text-1:#222222; --text-2:#717171; --text-3:#AAAAAA;
   --bg:#FFFFFF; --bg-s:#F7F7F7; --bg-card:#FFFFFF; --bg-in:#F7F7F7;
@@ -34,8 +35,9 @@
   --tab-h:72px; --hdr-h:56px;
   --font:'Plus Jakarta Sans',sans-serif; --mono:'DM Mono',monospace;
 }
-/* Somente quando o usuário ativar explicitamente dentro do app */
+/* Tema escuro — SOMENTE quando usuário ativar dentro do app */
 html[data-theme="dark"] {
+  color-scheme: dark;
   --text-1:#F5F5F5; --text-2:#A0A0A0; --text-3:#666666;
   --bg:#111111; --bg-s:#1A1A1A; --bg-card:#1E1E1E; --bg-in:#2A2A2A;
   --border:#333333; --border-m:#2A2A2A;
@@ -44,15 +46,22 @@ html[data-theme="dark"] {
   --red-pale:#2A0A10;
   --sh-sm:0 1px 4px rgba(0,0,0,.3); --sh-md:0 4px 16px rgba(0,0,0,.4);
 }
-/* Bloqueia sistema escuro de sobrescrever quando tema claro está ativo */
+/* Força tema claro mesmo em dispositivos com dark mode do sistema.
+   Usa !important para garantir que o Android/iOS não sobrescreva. */
 @media (prefers-color-scheme: dark) {
   html:not([data-theme="dark"]) {
-    --text-1:#222222; --text-2:#717171; --text-3:#AAAAAA;
-    --bg:#FFFFFF; --bg-s:#F7F7F7; --bg-card:#FFFFFF; --bg-in:#F7F7F7;
-    --border:#DDDDDD; --border-m:#EBEBEB;
-    --ok:#008A05; --ok-bg:#EDFFF0; --warn:#C87000; --warn-bg:#FFF8E7;
-    --err:#C13515; --err-bg:#FFF1EE; --info:#0068B7; --info-bg:#EDF4FF;
-    --red-pale:#FFF0F2;
+    color-scheme: light !important;
+    --text-1:#222222 !important; --text-2:#717171 !important; --text-3:#AAAAAA !important;
+    --bg:#FFFFFF !important; --bg-s:#F7F7F7 !important;
+    --bg-card:#FFFFFF !important; --bg-in:#F7F7F7 !important;
+    --border:#DDDDDD !important; --border-m:#EBEBEB !important;
+    --ok:#008A05 !important; --ok-bg:#EDFFF0 !important;
+    --warn:#C87000 !important; --warn-bg:#FFF8E7 !important;
+    --err:#C13515 !important; --err-bg:#FFF1EE !important;
+    --info:#0068B7 !important; --info-bg:#EDF4FF !important;
+    --red-pale:#FFF0F2 !important;
+    --sh-sm:0 1px 4px rgba(0,0,0,.06),0 0 0 1px rgba(0,0,0,.04) !important;
+    --sh-md:0 4px 16px rgba(0,0,0,.10) !important;
   }
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
@@ -297,6 +306,14 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
 }
 .upd-banner.show{transform:translateY(0)}
 
+/* COPYRIGHT FOOTER */
+.app-footer{
+  text-align:center;padding:1.25rem 1rem .75rem;
+  border-top:1px solid var(--border-m);margin-top:1rem;
+}
+.app-footer-brand{font-size:13px;font-weight:700;color:var(--text-2)}
+.app-footer-copy{font-size:11px;color:var(--text-3);margin-top:3px}
+
 /* FEEDBACK */
 .fb-type-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:1rem}
 .fb-type-btn{
@@ -413,6 +430,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
         <div class="week-wrap" id="week-chart"></div>
         <div style="display:flex;justify-content:space-between;margin-top:2px;padding-top:4px;border-top:1px solid var(--border-m)" id="week-days"></div>
       </div>
+      <div class="app-footer">
+        <div class="app-footer-brand">Ponto de Trabalho</div>
+        <div class="app-footer-copy">© 2025 Paulo Santos · Versão 1.2.0</div>
+      </div>
     </div>
 
     <!-- MEU PONTO -->
@@ -430,6 +451,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
         <label class="sw"><input type="checkbox" id="notif-tog" onchange="toggleNotif()"><div class="sw-track"></div><div class="sw-thumb"></div></label>
       </div>
       <div class="card"><div class="card-lbl">Histórico recente</div><div id="hist-list"></div></div>
+      <div class="app-footer">
+        <div class="app-footer-brand">Ponto de Trabalho</div>
+        <div class="app-footer-copy">© 2025 Paulo Santos · Versão 1.2.0</div>
+      </div>
     </div>
 
     <!-- CONFIG -->
@@ -510,7 +535,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
           <div class="srow-ico" style="background:var(--red-pale)">🔄</div>
           <div class="srow-info">
             <div class="srow-lbl">Verificar atualização</div>
-            <div class="srow-sub" id="update-status">Versão v1.1.0 — toque para verificar</div>
+            <div class="srow-sub" id="update-status">Versão v1.2.0 — toque para verificar</div>
           </div>
           <svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
         </div>
@@ -533,6 +558,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
         </div>
       </div>
       <div style="height:1rem"></div>
+      <div class="app-footer">
+        <div class="app-footer-brand">Ponto de Trabalho</div>
+        <div class="app-footer-copy">© 2025 Paulo Santos · Versão 1.2.0</div>
+      </div>
     </div>
 
     <!-- FEEDBACK -->
@@ -586,6 +615,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
         <div class="fb-sent-sub">Obrigado pela sua mensagem.<br>Paulo Santos agradece e irá analisar sua sugestão.</div>
         <button class="btn-save" style="margin-top:1.5rem;max-width:220px" onclick="resetFeedback()">Enviar outro</button>
       </div>
+      <div class="app-footer">
+        <div class="app-footer-brand">Ponto de Trabalho</div>
+        <div class="app-footer-copy">© 2025 Paulo Santos · Versão 1.2.0</div>
+      </div>
     </div>
 
     <!-- CONTA -->
@@ -611,7 +644,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       </div>
       <button class="btn-save" onclick="saveProfile()">Salvar perfil</button>
       <button class="btn-out" onclick="doLogout()">Sair da conta</button>
-      <div style="text-align:center;margin-top:1.5rem;margin-bottom:.5rem;font-size:11px;color:var(--text-3);font-weight:500">Ponto de Trabalho v1.0 · Sincronizado com Supabase</div>
+      <div class="app-footer">
+        <div class="app-footer-brand">Ponto de Trabalho</div>
+        <div class="app-footer-copy">© 2025 Paulo Santos · Versão 1.2.0</div>
+      </div>
     </div>
 
   </div>
@@ -1005,39 +1041,34 @@ async function sendFeedback(){
   const regime=profile.regime||'5x2';
   const dataHora=new Date().toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'});
 
-  const texto=`📋 *Novo Feedback — Ponto de Trabalho*
-
-`+
-    `*Tipo:* ${tipos[fbType]||fbType}
-`+
-    `*De:* ${nome} (${regime})
-`+
-    `*Data:* ${dataHora}
-
-`+
-    `*Mensagem:*
-${msg}`;
+  const texto='📋 Novo Feedback — Ponto de Trabalho\n\n'+
+    'Tipo: '+(tipos[fbType]||fbType)+'\n'+
+    'De: '+nome+' ('+regime+')\n'+
+    'Data: '+dataHora+'\n\n'+
+    'Mensagem:\n'+msg;
 
   try{
-    const res=await fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`,{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        chat_id:TG_CHAT,
-        text:texto,
-        parse_mode:'Markdown'
-      })
+    // Usa GET com parâmetros na URL para evitar bloqueio de CORS
+    const params=new URLSearchParams({
+      chat_id: TG_CHAT,
+      text: texto
     });
+    const url=`https://api.telegram.org/bot${TG_TOKEN}/sendMessage?${params.toString()}`;
+    const res=await fetch(url,{method:'GET'});
     const data=await res.json();
     if(data.ok){
-      // Sucesso — mostra tela de confirmação
       const fw=g('fb-form-wrap'),sw=g('fb-sent-wrap');
       if(fw)fw.style.display='none';
       if(sw)sw.style.display='flex';
       const ta=g('fb-text');if(ta)ta.value='';
       txt('fb-char-count','0');
     } else {
-      throw new Error(data.description||'Erro desconhecido');
+      // Bot ainda não foi iniciado pelo usuário
+      if(data.error_code===403){
+        toast('Ative o bot no Telegram primeiro','err');
+      } else {
+        throw new Error(data.description||'Erro '+data.error_code);
+      }
     }
   }catch(e){
     toast('Erro ao enviar. Verifique sua conexão.','err');
