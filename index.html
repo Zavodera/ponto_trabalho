@@ -894,12 +894,20 @@ function editSetor(id,nomeAtual){
 
 // ── CLOCK ──────────────────────────────────────────
 function startClock(){
+  let _lastDay=todayKey();
   function tick(){
     const now=new Date();const t=`${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
     txt('hdr-t',t);txt('hdr-t2',t);txt('hdr-t3',t);
     if(g('clk'))txt('clk',t);
     if(g('clk-date'))txt('clk-date',`${DAYS[now.getDay()]}, ${now.getDate()} de ${MONTHS[now.getMonth()]}`);
     if(rec?.entrada&&!rec?.saida)txt('s-hoje',mhm(liveMin(rec)));
+    // Detecta virada de dia — recarrega tudo automaticamente
+    const today=todayKey();
+    if(today!==_lastDay){
+      _lastDay=today;
+      console.log('[Clock] Virada de dia detectada, recarregando registro...');
+      loadRec().then(()=>{renderHome();renderSteps();renderHist();renderWeek();});
+    }
   }
   tick();setInterval(tick,1000);
 }
@@ -910,8 +918,8 @@ function navColab(name,idx){
   document.querySelectorAll('#shell-colab .tab').forEach(t=>t.classList.remove('on'));
   g('pg-'+name).classList.add('on');
   const tabs=document.querySelectorAll('#shell-colab .tab');const ti=name==='feedback'?2:idx;if(tabs[ti])tabs[ti].classList.add('on');
-  if(name==='home'){renderHome();renderWeek();}
-  if(name==='ponto'){renderSteps();renderHist();}
+  if(name==='home'){loadRec().then(()=>{renderHome();renderWeek();});}
+  if(name==='ponto'){loadRec().then(()=>{renderSteps();renderHome();renderHist();});}
   if(name==='config')applyTheme(localStorage.getItem('ponto-theme')||'light');
   if(name==='conta'){loadSetores().then(syncProfileUI);loadMinhasSolicitacoes();}
 }
