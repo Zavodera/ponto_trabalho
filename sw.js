@@ -33,7 +33,7 @@ self.addEventListener('activate', event => {
     caches.keys().then(keys =>
       Promise.all(
         keys
-          .filter(key => key.startsWith('ponto-') && key !== CACHE)
+          .filter(key => (key.startsWith('pontify-') || key.startsWith('ponto-')) && key !== CACHE)
           .map(key => {
             console.log(`[SW] Removendo cache antigo: ${key}`);
             return caches.delete(key);
