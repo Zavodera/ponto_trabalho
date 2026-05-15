@@ -1,7 +1,7 @@
 {
-  "name": "Ponto de Trabalho",
-  "short_name": "Ponto",
-  "description": "Controle sua jornada de trabalho com precisão",
+  "name": "PontiFy",
+  "short_name": "PontiFy",
+  "description": "Controle sua jornada com precisão",
   "start_url": "./index.html",
   "display": "standalone",
   "orientation": "portrait",

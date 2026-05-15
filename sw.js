@@ -1,13 +1,14 @@
 // ─── SERVICE WORKER — Ponto de Trabalho ───────────────────
 // Mude a versão aqui sempre que fizer uma atualização!
 // Isso garante que todos os usuários recebam a versão nova.
-const VERSION = 'v2.0.0';
-const CACHE   = `ponto-${VERSION}`;
+const VERSION = 'v2.1.0';
+const CACHE   = `pontify-${VERSION}`;
 
 // Arquivos que serão cacheados para funcionar offline
 const ASSETS = [
   './index.html',
   './manifest.json',
+  './abertura.json',
   'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap',
   'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2'
 ];
