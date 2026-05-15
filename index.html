@@ -266,7 +266,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       <div class="stat-grid"><div class="stat-tile t-red"><div class="st-icon">⏱️</div><div class="st-lbl">Hoje</div><div class="st-val" id="s-hoje">0h00</div></div><div class="stat-tile t-blue"><div class="st-icon">☕</div><div class="st-lbl">Descanso</div><div class="st-val" id="s-desc">0h00</div></div><div class="stat-tile t-green"><div class="st-icon">📊</div><div class="st-lbl">Banco</div><div class="st-val" id="s-banco">+0h00</div></div><div class="stat-tile t-orange"><div class="st-icon">📅</div><div class="st-lbl">Semana</div><div class="st-val" id="s-sem">0h00</div></div></div>
       <div class="card"><div class="card-lbl">Registro de hoje</div><div class="tl-row"><div class="tl-dot" style="background:#FFF0F2">🟢</div><div class="tl-info"><div class="tl-name">Entrada</div><div class="tl-sub">Início da jornada</div></div><div class="tl-time" id="tl-e">--:--</div></div><div class="tl-row"><div class="tl-dot" style="background:#FFF8E1">🟡</div><div class="tl-info"><div class="tl-name">Saída p/ almoço</div><div class="tl-sub">Início do intervalo</div></div><div class="tl-time" id="tl-sa">--:--</div></div><div class="tl-row"><div class="tl-dot" style="background:#EDF4FF">🔵</div><div class="tl-info"><div class="tl-name">Retorno almoço</div><div class="tl-sub">Fim do intervalo</div></div><div class="tl-time" id="tl-ra">--:--</div></div><div class="tl-row"><div class="tl-dot" style="background:#FFF1EE">🔴</div><div class="tl-info"><div class="tl-name">Saída</div><div class="tl-sub">Fim da jornada</div></div><div class="tl-time" id="tl-s">--:--</div></div><div class="tl-row" style="border-bottom:none"><div class="tl-dot" style="background:#EDFFF0">🎯</div><div class="tl-info"><div class="tl-name">Saída prevista</div><div class="tl-sub">Baseada na carga horária</div></div><div class="tl-time pred" id="tl-prev">--:--</div></div></div>
       <div class="card"><div class="card-lbl">Semana atual</div><div class="week-wrap" id="week-chart"></div><div style="display:flex;justify-content:space-between;margin-top:2px;padding-top:4px;border-top:1px solid var(--border-m)" id="week-days"></div></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.5.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.6.0</span></div></div>
     </div>
     <div class="page" id="pg-ponto">
       <div class="clk-hero"><div class="clk-big" id="clk">00:00:00</div><div class="clk-date" id="clk-date">--</div><div style="margin-top:1rem;font-size:13px;color:var(--text-2)" id="clk-st"></div></div>
@@ -274,7 +274,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       <button class="btn-punch" id="btn-punch" onclick="doPunch()">REGISTRAR PONTO</button>
       <div class="notif-card"><div style="font-size:22px">🔔</div><div style="flex:1"><div style="font-size:14px;font-weight:700">Lembrete de ponto</div><div style="font-size:12px;color:var(--text-2);margin-top:2px" id="notif-sub">Ativar avisos automáticos</div></div><label class="sw"><input type="checkbox" id="notif-tog" onchange="toggleNotif()"><div class="sw-track"></div><div class="sw-thumb"></div></label></div>
       <div class="card"><div class="card-lbl">Histórico recente</div><div id="hist-list"></div></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.5.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.6.0</span></div></div>
     </div>
     <div class="page" id="pg-config">
       <div class="pg-title">Configurações</div><div class="pg-sub">Personalize o app</div>
@@ -289,10 +289,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       <div class="sg-title">Suporte</div>
       <div class="slist"><div class="srow" onclick="navColab('feedback',4)" style="cursor:pointer"><div class="srow-ico" style="background:var(--red-pale)">💬</div><div class="srow-info"><div class="srow-lbl">Enviar feedback</div><div class="srow-sub">Sugestões, bugs ou elogios</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div></div>
       <div class="sg-title">Atualização</div>
-      <div class="slist"><div class="srow" onclick="manualUpdate()" style="cursor:pointer"><div class="srow-ico" style="background:var(--red-pale)">🔄</div><div class="srow-info"><div class="srow-lbl">Verificar atualização</div><div class="srow-sub" id="update-status">Versão <span class="app-ver">3.5.0</span></div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div><div class="srow" onclick="forceReload()" style="cursor:pointer"><div class="srow-ico" style="background:var(--info-bg)">⚡</div><div class="srow-info"><div class="srow-lbl">Forçar recarregamento</div><div class="srow-sub">Limpa cache e recarrega</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div></div>
+      <div class="slist"><div class="srow" onclick="manualUpdate()" style="cursor:pointer"><div class="srow-ico" style="background:var(--red-pale)">🔄</div><div class="srow-info"><div class="srow-lbl">Verificar atualização</div><div class="srow-sub" id="update-status">Versão <span class="app-ver">3.6.0</span></div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div><div class="srow" onclick="forceReload()" style="cursor:pointer"><div class="srow-ico" style="background:var(--info-bg)">⚡</div><div class="srow-info"><div class="srow-lbl">Forçar recarregamento</div><div class="srow-sub">Limpa cache e recarrega</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div></div>
       <div class="sg-title">Dados</div>
       <div class="slist"><div class="srow" onclick="confirmDeleteAll()" style="cursor:pointer"><div class="srow-ico" style="background:var(--err-bg)">🗑️</div><div class="srow-info"><div class="srow-lbl" style="color:var(--err)">Apagar meus registros</div><div class="srow-sub">Ação irreversível</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.5.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.6.0</span></div></div>
     </div>
     <div class="page" id="pg-feedback">
       <div class="pg-title">Feedback</div><div class="pg-sub">Sua opinião melhora o app</div>
@@ -302,7 +302,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
         <button class="btn-red" onclick="sendFeedback()" id="fb-send-btn">Enviar feedback</button>
       </div>
       <div class="fb-sent" id="fb-sent-wrap"><div style="font-size:52px;margin-bottom:1rem">🎉</div><div style="font-size:20px;font-weight:800;margin-bottom:.5rem">Feedback enviado!</div><div style="font-size:14px;color:var(--text-2)">Paulo Santos irá analisar sua sugestão.</div><button class="btn-red" style="margin-top:1.5rem;max-width:200px" onclick="resetFeedback()">Enviar outro</button></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.5.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.6.0</span></div></div>
     </div>
     <div class="page" id="pg-conta">
       <div style="background:var(--bg-card);border:1px solid var(--border-m);border-radius:var(--r-xl);padding:1.75rem 1.25rem 1.25rem;text-align:center;margin-bottom:1rem;box-shadow:var(--sh-sm)">
@@ -323,7 +323,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       <button class="btn-red" onclick="saveProfile()" style="margin-bottom:.6rem">Salvar perfil</button>
       <button class="btn-out" onclick="doLogout()">Sair da conta</button>
       <div class="card" style="margin-top:1rem"><div class="card-lbl">Solicitações de ajuste de ponto</div><div id="minhas-solicitacoes"></div><button class="btn-ghost" onclick="openSolicitacao()" style="margin-top:.5rem">➕ Nova solicitação</button></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.5.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.6.0</span></div></div>
     </div>
   </div>
   <div class="tabs">
@@ -342,18 +342,18 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       <div class="gestor-hero"><div class="h-greet" style="color:rgba(255,255,255,.75)">Painel do gestor</div><div class="h-name" id="g-setor-nome">Meu setor</div><div class="h-date" id="g-live-date" style="color:rgba(255,255,255,.85)">--</div><div class="h-pill" style="background:rgba(255,255,255,.2)"><div class="h-dot"></div><span id="g-trabalhando">0 trabalhando agora</span></div></div>
       <div class="card-lbl" style="padding:0 .25rem;margin-bottom:.75rem">Colaboradores — ao vivo</div>
       <div class="live-grid" id="live-grid"></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.5.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.6.0</span></div></div>
     </div>
     <div class="page" id="pg-g-hist">
       <div class="pg-title">Histórico</div><div class="pg-sub">Registros do setor</div>
       <div class="card"><div class="exp-dates" style="margin-bottom:.5rem"><input type="date" id="g-hist-de"><input type="date" id="g-hist-ate"></div><button class="btn-ghost" onclick="loadGestorHist()" style="margin-bottom:0">🔍 Filtrar</button></div>
       <div id="g-hist-list"></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.5.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.6.0</span></div></div>
     </div>
     <div class="page" id="pg-g-sol">
       <div class="pg-title">Solicitações</div><div class="pg-sub">Ajustes de ponto pendentes</div>
       <div id="g-sol-list"></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.5.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.6.0</span></div></div>
     </div>
     <div class="page" id="pg-g-perfil">
       <div class="pg-title">Meu perfil</div>
@@ -423,7 +423,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
         <button class="btn-red" onclick="salvarEmpresaBranding()">Salvar identidade visual</button>
       </div>
       <button class="btn-out" onclick="doLogout()" style="margin-top:.5rem">Sair da conta</button>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.5.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.6.0</span></div></div>
     </div>
   </div>
   <div class="tabs">
@@ -447,30 +447,30 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       <div class="admin-stats"><div class="admin-stat"><div class="admin-stat-val" id="a-total-users">--</div><div class="admin-stat-lbl">Usuários</div></div><div class="admin-stat"><div class="admin-stat-val" id="a-total-setores">--</div><div class="admin-stat-lbl">Setores</div></div><div class="admin-stat"><div class="admin-stat-val" id="a-total-pendentes">--</div><div class="admin-stat-lbl">Pendentes</div></div></div>
       <div class="card"><div class="card-lbl">Ações rápidas</div><div class="slist"><div class="srow" onclick="navAdmin('a-users',1)" style="cursor:pointer"><div class="srow-ico" style="background:var(--red-pale)">👥</div><div class="srow-info"><div class="srow-lbl">Gerenciar usuários</div><div class="srow-sub">Promover, editar, excluir</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div><div class="srow" onclick="navAdmin('a-setores',3)" style="cursor:pointer"><div class="srow-ico" style="background:var(--info-bg)">🏢</div><div class="srow-info"><div class="srow-lbl">Gerenciar setores</div><div class="srow-sub">Criar e atribuir gestores</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div><div class="srow" onclick="navAdmin('a-sol',2)" style="cursor:pointer"><div class="srow-ico" style="background:var(--warn-bg)">📝</div><div class="srow-info"><div class="srow-lbl">Solicitações de ajuste</div><div class="srow-sub" id="a-pendentes-lbl">Ver todas</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div><div class="srow" onclick="navAdmin('a-pontos',4)" style="cursor:pointer"><div class="srow-ico" style="background:var(--ok-bg)">🕐</div><div class="srow-info"><div class="srow-lbl">Todos os pontos</div><div class="srow-sub">Visão global da empresa</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div></div></div>
       <button class="btn-out" onclick="doLogout()" style="margin-top:.5rem">Sair da conta</button>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.5.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.6.0</span></div></div>
     </div>
     <div class="page" id="pg-a-users">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><button onclick="navAdmin('a-dash',0)" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-2)">←</button><div class="pg-title" style="margin-bottom:0">Usuários</div></div>
       <div class="field" style="margin-bottom:.75rem"><input type="text" id="user-search" placeholder="🔍 Buscar por nome..." oninput="filterUsers()"></div>
       <div class="slist" id="users-list"><div class="empty"><div class="empty-ico">👥</div><div class="empty-txt">Carregando...</div></div></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.5.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.6.0</span></div></div>
     </div>
     <div class="page" id="pg-a-sol">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><button onclick="navAdmin('a-dash',0)" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-2)">←</button><div class="pg-title" style="margin-bottom:0">Solicitações</div></div>
       <div id="a-sol-list"><div class="empty"><div class="empty-ico">📝</div><div class="empty-txt">Carregando...</div></div></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.5.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.6.0</span></div></div>
     </div>
     <div class="page" id="pg-a-setores">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><button onclick="navAdmin('a-dash',0)" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-2)">←</button><div class="pg-title" style="margin-bottom:0">Setores</div></div>
       <div class="card"><div class="card-lbl">Criar novo setor</div><div class="pf-f"><input type="text" id="novo-setor-nome" placeholder="Nome do setor (ex: Produção, TI...)"></div><button class="btn-red" onclick="criarSetor()">Criar setor</button></div>
       <div id="setores-list"></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.5.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.6.0</span></div></div>
     </div>
     <div class="page" id="pg-a-pontos">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><button onclick="navAdmin('a-dash',0)" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-2)">←</button><div class="pg-title" style="margin-bottom:0">Todos os pontos</div></div>
       <div class="card"><div class="exp-dates" style="margin-bottom:.5rem"><input type="date" id="a-pt-de"><input type="date" id="a-pt-ate"></div><button class="btn-ghost" onclick="loadAdminPontos()" style="margin-bottom:0">🔍 Filtrar</button></div>
       <div id="a-pontos-list"></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.5.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.6.0</span></div></div>
     </div>
   </div>
   <div class="tabs">
@@ -505,7 +505,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
         <div class="card-lbl">Empresas cadastradas</div>
         <div id="s-emp-list"><div class="empty"><div class="empty-ico">🏢</div><div class="empty-txt">Carregando...</div></div></div>
       </div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 Paulo Santos · Versão <span class="app-ver">3.5.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 Paulo Santos · Versão <span class="app-ver">3.6.0</span></div></div>
     </div>
     <!-- NOVA EMPRESA -->
     <div class="page" id="pg-s-nova">
@@ -520,13 +520,13 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
         </div>
       </div>
       <button class="btn-red" style="background:#7C3AED;box-shadow:0 4px 16px rgba(124,58,237,.35)" onclick="criarEmpresa()">Criar empresa</button>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 Paulo Santos · Versão <span class="app-ver">3.5.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 Paulo Santos · Versão <span class="app-ver">3.6.0</span></div></div>
     </div>
     <!-- DETALHE EMPRESA -->
     <div class="page" id="pg-s-emp">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><button onclick="navSuper('s-dash',0)" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-2)">←</button><div class="pg-title" style="margin-bottom:0" id="s-emp-title">Empresa</div></div>
       <div id="s-emp-detail"></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 Paulo Santos · Versão <span class="app-ver">3.5.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 Paulo Santos · Versão <span class="app-ver">3.6.0</span></div></div>
     </div>
   </div>
   <div class="tabs">
@@ -1278,55 +1278,100 @@ async function loadGestorSol(){
 function renderSolList(elId,data,userMap){
   const el=g(elId);if(!el)return;
   if(!data.length){el.innerHTML='<div class="empty"><div class="empty-ico">✅</div><div class="empty-txt">Nenhuma solicitação</div></div>';return;}
+  const campoLabels={entrada:'Entrada',saida_almoco:'Saída almoço',retorno_almoco:'Retorno almoço',saida:'Saída'};
   el.innerHTML=data.map(s=>{
     const nome=userMap?.find(u=>u.user_id===s.user_id)?.nome||'Usuário';
-    const acoes=s.status==='pendente'?`<div class="sol-actions">
-      <button class="btn-aprovar" onclick="abrirAprovacaoSol('${s.id}','${s.user_id}','${s.data}','${s.campo}','${s.valor_solicitado}','${nome}')">✏️ Revisar e aprovar</button>
-      <button class="btn-rejeitar" onclick="respSolicitacao('${s.id}','rejeitado')">❌ Rejeitar</button>
-    </div>`:'';
-    return`<div class="sol-card ${s.status}"><div class="sol-header"><span class="sol-name">${nome} — ${formatDateBR(s.data)}</span><span class="badge ${s.status==='aprovado'?'badge-ok':s.status==='rejeitado'?'badge-err':'badge-warn'}">${s.status}</span></div><div class="sol-body"><strong>${s.campo}:</strong> ${s.valor_original||'--'} → <strong style="color:var(--ok)">${s.valor_solicitado}</strong><br><em style="color:var(--text-3)">${s.justificativa}</em></div>${acoes}</div>`;
+    const campoLabel=campoLabels[s.campo]||s.campo;
+    // Ações: pendente → revisar+rejeitar; aprovado → editar ainda assim; rejeitado → só reabrir
+    let acoes='';
+    if(s.status==='pendente'){
+      acoes=`<div class="sol-actions">
+        <button class="btn-aprovar" onclick="abrirAprovacaoSol('${s.id}','${s.user_id}','${s.data}','${s.campo}','${s.valor_solicitado}','${nome.replace(/'/g,"\'")}')">✏️ Revisar e aprovar</button>
+        <button class="btn-rejeitar" onclick="respSolicitacao('${s.id}','rejeitado')">❌ Rejeitar</button>
+      </div>`;
+    }else if(s.status==='aprovado'){
+      acoes=`<div style="margin-top:.5rem">
+        <button onclick="abrirAprovacaoSol('${s.id}','${s.user_id}','${s.data}','${s.campo}','${s.valor_solicitado}','${nome.replace(/'/g,"\'")}',true)" style="font-size:12px;padding:5px 12px;background:var(--info-bg);border:1px solid var(--info);border-radius:20px;color:var(--info);cursor:pointer;font-family:var(--font);font-weight:700">📋 Ver/editar registro do dia</button>
+      </div>`;
+    }
+    const statusBadge=s.status==='aprovado'?'badge-ok':s.status==='rejeitado'?'badge-err':'badge-warn';
+    return`<div class="sol-card ${s.status}">
+      <div class="sol-header">
+        <span class="sol-name">${nome} — ${formatDateBR(s.data)}</span>
+        <span class="badge ${statusBadge}">${s.status}</span>
+      </div>
+      <div class="sol-body">
+        <strong>${campoLabel}:</strong> <span style="color:var(--err)">${s.valor_original||'—'}</span> → <strong style="color:var(--ok)">${s.valor_solicitado}</strong>
+        <br><em style="color:var(--text-3);font-size:12px">${s.justificativa}</em>
+      </div>
+      ${acoes}
+    </div>`;
   }).join('');
 }
 
-async function abrirAprovacaoSol(solId,uid,data,campo,valorSolicitado,nomeFunc){
-  // Busca o registro atual do dia para mostrar os valores atuais
+async function abrirAprovacaoSol(solId,uid,data,campo,valorSolicitado,nomeFunc,somenteEditar=false){
+  // Busca o registro completo do dia
   const{data:reg}=await db.from('registros').select('*').eq('user_id',uid).eq('data',data).single();
-  const atual=reg?.[campo]||'--';
+  const atual=reg?.[campo]||'—';
+  const campoLabels={entrada:'🟢 Entrada',saida_almoco:'🟡 Saída almoço',retorno_almoco:'🔵 Retorno almoço',saida:'🔴 Saída'};
+
+  // Pré-preenche o campo solicitado e mantém os demais com valores atuais
+  const vals={
+    entrada:   reg?.entrada||'',
+    saida_almoco: reg?.saida_almoco||'',
+    retorno_almoco: reg?.retorno_almoco||'',
+    saida:     reg?.saida||''
+  };
+  // Sobrescreve o campo solicitado com o valor pedido pelo funcionário
+  vals[campo]=valorSolicitado;
+
   const form=`
-    <div style="background:var(--bg-s);border-radius:var(--r-sm);padding:.75rem;margin-bottom:.75rem;font-size:13px;color:var(--text-2)">
-      <strong style="color:var(--text-1)">${nomeFunc}</strong> · ${formatDateBR(data)}<br>
-      Campo: <strong>${campo}</strong><br>
-      Atual: <strong style="color:var(--err)">${atual}</strong> → Solicitado: <strong style="color:var(--ok)">${valorSolicitado}</strong>
+    <div style="background:var(--warn-bg);border:1.5px solid var(--warn);border-radius:var(--r-sm);padding:.85rem 1rem;margin-bottom:1rem;font-size:13px">
+      <div style="font-weight:700;color:var(--warn);margin-bottom:4px">📋 Solicitação de ${nomeFunc}</div>
+      <div style="color:var(--text-2)">Data: <strong style="color:var(--text-1)">${formatDateBR(data)}</strong></div>
+      <div style="color:var(--text-2);margin-top:2px">${campoLabels[campo]||campo}: <strong style="color:var(--err)">${atual}</strong> → <strong style="color:var(--ok)">${valorSolicitado}</strong></div>
     </div>
-    <div class="pf-f"><label>Confirmar ou ajustar horário</label><input type="time" id="sol-ap-valor" value="${valorSolicitado}"></div>
-    <div class="pf-f"><label>Entrada</label><input type="time" id="sol-ap-entrada" value="${reg?.entrada||''}"></div>
-    <div class="pf-f"><label>Saída almoço</label><input type="time" id="sol-ap-sa" value="${reg?.saida_almoco||''}"></div>
-    <div class="pf-f"><label>Retorno almoço</label><input type="time" id="sol-ap-ra" value="${reg?.retorno_almoco||''}"></div>
-    <div class="pf-f"><label>Saída</label><input type="time" id="sol-ap-saida" value="${reg?.saida||''}"></div>`;
-  showModal('Revisar ponto — '+nomeFunc,'Ajuste os horários se necessário e aprove.',async()=>{
-    // Salva o campo solicitado com valor confirmado/ajustado
-    const valorFinal=v('sol-ap-valor')||valorSolicitado;
-    // Monta update com todos os campos editados
-    const upd={[campo]:valorFinal};
-    if(v('sol-ap-entrada'))upd.entrada=v('sol-ap-entrada');
-    if(v('sol-ap-sa'))upd.saida_almoco=v('sol-ap-sa');
-    if(v('sol-ap-ra'))upd.retorno_almoco=v('sol-ap-ra');
-    if(v('sol-ap-saida'))upd.saida=v('sol-ap-saida');
-    // Recalcula total
-    const baseReg=reg||{};
-    const merged={...baseReg,...upd};
+    <div style="font-size:11px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.6rem">Ajuste o dia completo se necessário</div>
+    <div class="pf-f"><label>🟢 Entrada</label><input type="time" id="sol-ap-entrada" value="${vals.entrada}"></div>
+    <div class="pf-f"><label>🟡 Saída almoço</label><input type="time" id="sol-ap-sa" value="${vals.saida_almoco}"></div>
+    <div class="pf-f"><label>🔵 Retorno almoço</label><input type="time" id="sol-ap-ra" value="${vals.retorno_almoco}"></div>
+    <div class="pf-f"><label>🔴 Saída</label><input type="time" id="sol-ap-saida" value="${vals.saida}"></div>`;
+
+  const tituloModal=somenteEditar?'Editar registro — '+nomeFunc:'Revisar ponto — '+nomeFunc;
+  const subModal=somenteEditar?'Edite os horários do dia diretamente.':'Confirme ou ajuste os horários antes de aprovar.';
+  showModal(tituloModal,subModal,async()=>{
+    // Coleta todos os valores (só grava campos preenchidos)
+    const upd={};
+    const e=v('sol-ap-entrada');const sa=v('sol-ap-sa');
+    const ra=v('sol-ap-ra');const s=v('sol-ap-saida');
+    if(e)upd.entrada=e;
+    if(sa)upd.saida_almoco=sa;
+    if(ra)upd.retorno_almoco=ra;
+    if(s)upd.saida=s;
+    // Garante que o campo solicitado tem o valor correto
+    upd[campo]=v('sol-ap-'+campo.replace('_almoco','-a').replace('saida','saida').replace('retorno_almoco','ra').replace('entrada','entrada'))||valorSolicitado;
+    // Recalcula total com os valores finais
+    const merged={...(reg||{}),...upd};
     if(merged.entrada&&merged.saida)upd.total_minutos=calcMin(merged);
+    // Salva ou cria o registro
+    const empId=empresa.id||profile.empresa_id||null;
     if(reg){
-      await db.from('registros').update(upd).eq('id',reg.id);
+      const{error}=await db.from('registros').update(upd).eq('id',reg.id);
+      if(error)return toast('Erro ao salvar: '+error.message,'err');
     }else{
-      // Cria registro se não existe
-      await db.from('registros').insert({user_id:uid,data,...upd,empresa_id:empresa.id||profile.empresa_id||null});
+      const{error}=await db.from('registros').insert({user_id:uid,data,...upd,empresa_id:empId});
+      if(error)return toast('Erro ao criar registro: '+error.message,'err');
     }
-    // Aprova a solicitação
-    await db.from('solicitacoes_ajuste').update({status:'aprovado',aprovado_por:CU.id}).eq('id',solId);
-    successPopup('Ponto aprovado e atualizado!');
+    // Aprova a solicitação (só se não for modo somenteEditar)
+    if(!somenteEditar){
+      const{error:errSol}=await db.from('solicitacoes_ajuste').update({status:'aprovado',aprovado_por:CU.id}).eq('id',solId);
+      if(errSol)return toast('Erro ao aprovar: '+errSol.message,'err');
+      successPopup('Ponto aprovado e atualizado! ✅');
+    }else{
+      successPopup('Registro atualizado com sucesso!');
+    }
     loadGestorSol();loadAdminSol();
-  },false,form,'Aprovar e salvar','ok');
+  },false,form,somenteEditar?'💾 Salvar alterações':'✅ Aprovar e salvar','ok');
 }
 
 // ── BOOT ADMIN ────────────────────────────────────
@@ -1469,13 +1514,27 @@ function editSetor(id,nomeAtual){
   const setor=allSetores.find(s=>s.id===id);
   const gestores=allUsers.filter(u=>u.role==='gestor'||u.role==='admin');
   const gOpts='<option value="">Sem gestor</option>'+gestores.map(u=>`<option value="${u.user_id}"${u.user_id===setor?.gestor_id?' selected':''}>${u.nome||u.user_id.slice(0,12)}</option>`).join('');
-  const form=`<div class="pf-f"><label>Nome do setor</label><input type="text" id="es-nome" value="${nomeAtual}"></div><div class="pf-f"><label>Gestor responsável</label><select id="es-gestor">${gOpts}</select></div>`;
-  showModal('Editar setor','',async()=>{
+  const form=`<div class="pf-f"><label>Nome do setor</label><input type="text" id="es-nome" value="${nomeAtual}"></div>
+    <div class="pf-f"><label>Gestor responsável</label><select id="es-gestor">${gOpts}</select></div>
+    <div style="margin-top:1rem"><button onclick="confirmarExcluirSetor('${id}','${nomeAtual}')" style="width:100%;padding:.75rem;background:var(--err-bg);border:1px solid var(--err);border-radius:var(--r-sm);color:var(--err);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer">🗑️ Excluir setor</button></div>`;
+  showModal('Editar setor — '+nomeAtual,'',async()=>{
     const nome=v('es-nome').trim();if(!nome)return toast('Digite o nome','err');
     const{error}=await db.from('setores').update({nome,gestor_id:v('es-gestor')||null}).eq('id',id);
     if(error){console.error('[editSetor]',error);return toast('Erro: '+error.message,'err');}
     successPopup('Setor atualizado com sucesso!');await loadSetores();loadSetores_UI();
   },false,form,'Salvar');
+}
+
+function confirmarExcluirSetor(id,nome){
+  closeModal();
+  showModal('Excluir setor "'+nome+'"','Usuários vinculados a este setor ficarão sem setor. Esta ação não pode ser desfeita.',async()=>{
+    // Remove gestor_id do setor nos perfis que o usam
+    await db.from('profiles').update({setor_id:null,setor_alterado:false}).eq('setor_id',id);
+    const{error}=await db.from('setores').delete().eq('id',id);
+    if(error)return toast('Erro ao excluir: '+error.message,'err');
+    successPopup('Setor excluído!');
+    await loadSetores();loadSetores_UI();loadAdminStats();
+  },true,'','Excluir setor');
 }
 
 // ── CLOCK ──────────────────────────────────────────
@@ -1826,7 +1885,7 @@ document.addEventListener('input',e=>{
 });
 
 // ── SW / UPDATE ────────────────────────────────────
-const APP_VERSION='3.5.0';
+const APP_VERSION='3.6.0';
 function syncVersion(){
   document.querySelectorAll('.app-ver').forEach(el=>el.textContent=APP_VERSION);
   const us=g('update-status');if(us&&!us.textContent.includes('✅'))us.textContent='Versão '+APP_VERSION;
