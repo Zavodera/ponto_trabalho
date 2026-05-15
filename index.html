@@ -686,11 +686,11 @@ async function boot(){
   await loadProfile();
   const role=profile.role||'colaborador';
   if(role==='admin'){
-    show('shell-admin');await bootAdmin();
+    show('shell-admin','flex');await bootAdmin();
   } else if(role==='gestor'){
-    show('shell-gestor');await bootGestor();
+    show('shell-gestor','flex');await bootGestor();
   } else {
-    show('shell-colab');await bootColab();
+    show('shell-colab','flex');await bootColab();
   }
   startClock();
   swSetup();
@@ -750,11 +750,14 @@ function syncProfileUI(){
   txt('preg-disp',profile.regime||'5x2');txt('h-name',nome.split(' ')[0]);
   // setor badge
   const setorNome=allSetores.find(s=>s.id===profile.setor_id)?.nome||'Sem setor';
-  txt('setor-disp',setorNome);
-  g('pf-nome').value=profile.nome||'';g('pf-func').value=profile.funcao||'';
-  g('pf-emp').value=profile.empresa||'';g('pf-reg').value=profile.regime||'5x2';
-  g('pf-hr').value=profile.horario_entrada||'08:00';
-  const av=g('av-disp');
+  if(g('setor-disp'))txt('setor-disp',setorNome);
+  // guard: profile form only exists in colaborador shell
+  if(g('pf-nome'))g('pf-nome').value=profile.nome||'';
+  if(g('pf-func'))g('pf-func').value=profile.funcao||'';
+  if(g('pf-emp'))g('pf-emp').value=profile.empresa||'';
+  if(g('pf-reg'))g('pf-reg').value=profile.regime||'5x2';
+  if(g('pf-hr'))g('pf-hr').value=profile.horario_entrada||'08:00';
+  const av=g('av-disp');if(!av)return;
   if(profile.avatar_url)av.innerHTML=`<img src="${profile.avatar_url}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`;
   else av.textContent=nome.charAt(0).toUpperCase();
   // setor dropdown
@@ -784,12 +787,18 @@ function handleAvatar(inp){
 async function loadConfig(){
   const{data}=await db.from('configs').select('*').eq('user_id',CU.id).single();
   if(data){cfg={hd:data.horas_dia||8,al:data.almoco_min||75,tol:data.tolerancia_min||10,notif:data.notif||false,sem:data.semanal||false};
-    g('cfg-hd').value=cfg.hd;g('cfg-al').value=cfg.al;g('cfg-tol').value=cfg.tol;
-    g('cfg-notif').checked=cfg.notif;g('cfg-sem').checked=cfg.sem;}
+    // guard: these elements only exist in colaborador shell
+    if(g('cfg-hd'))g('cfg-hd').value=cfg.hd;
+    if(g('cfg-al'))g('cfg-al').value=cfg.al;
+    if(g('cfg-tol'))g('cfg-tol').value=cfg.tol;
+    if(g('cfg-notif'))g('cfg-notif').checked=cfg.notif;
+    if(g('cfg-sem'))g('cfg-sem').checked=cfg.sem;
+  }
   applyTheme(localStorage.getItem('ponto-theme')||'light');
 }
 async function saveConfig(){
-  cfg={hd:parseFloat(v('cfg-hd')),al:parseInt(v('cfg-al')),tol:parseInt(v('cfg-tol')),notif:g('cfg-notif').checked,sem:g('cfg-sem').checked};
+  if(!g('cfg-hd'))return; // only runs in colaborador shell
+  cfg={hd:parseFloat(v('cfg-hd')),al:parseInt(v('cfg-al')),tol:parseInt(v('cfg-tol')),notif:g('cfg-notif')?.checked||false,sem:g('cfg-sem')?.checked||false};
   await db.from('configs').upsert({user_id:CU.id,horas_dia:cfg.hd,almoco_min:cfg.al,tolerancia_min:cfg.tol,notif:cfg.notif,semanal:cfg.sem},{onConflict:'user_id'});
   renderHome();
 }
@@ -829,11 +838,12 @@ async function doPunch(){
 }
 
 function renderSteps(){
-  const r=rec||{};const ns=nextStep(r);const btn=g('btn-punch');
+  const r=rec||{};const ns=nextStep(r);const btn=g('btn-punch');if(!btn)return;
   const stLabels=['🟢 REGISTRAR ENTRADA','🟡 SAÍDA PARA ALMOÇO','🔵 RETORNO DO ALMOÇO','🔴 REGISTRAR SAÍDA'];
   const stMsg=['Bom dia! Registre sua entrada 👋','Hora do almoço? ☕','Voltou? Registre o retorno 🔵','Finalize o dia! 🔴'];
+  if(!g('punch-steps'))return;
   g('punch-steps').innerHTML=STEPS.map((s,i)=>{const done=i<ns,active=i===ns,val=r[s.k];return`<div class="step-row ${done?'done':''} ${active?'active':''}"><div class="step-circ">${done?'✓':s.ic}</div><div style="flex:1"><div class="step-name">${s.l}</div><div class="step-time">${val||(active?'aguardando...':'--:--')}</div></div>${done?'<span class="step-badge done">Feito</span>':''}${active?'<span class="step-badge active">Próximo</span>':''}</div>`;}).join('');
-  if(ns===4){btn.textContent='✅ DIA CONCLUÍDO';btn.disabled=true;btn.classList.add('done');txt('clk-st','Jornada completa! Bom descanso 🎉');}
+  if(ns===4){btn.textContent='✅ DIA CONCLUÍDO';btn.disabled=true;btn.classList.add('done');if(g('clk-st'))txt('clk-st','Jornada completa! Bom descanso 🎉');}
   else{btn.textContent=stLabels[ns];btn.disabled=false;btn.classList.remove('done');txt('clk-st',stMsg[ns]||'');}
 }
 
@@ -850,11 +860,11 @@ function renderHome(){
 async function updateBanco(){
   const{data}=await db.from('registros').select('total_minutos').eq('user_id',CU.id).not('total_minutos','is',null);
   if(!data)return;const target=cfg.hd*60,banco=data.reduce((a,r)=>a+(r.total_minutos-target),0);
-  const el=g('s-banco');el.textContent=(banco>=0?'+':'-')+mhm(Math.abs(banco));el.style.color=banco>=0?'var(--ok)':'var(--err)';
+  const el=g('s-banco');if(el){el.textContent=(banco>=0?'+':'-')+mhm(Math.abs(banco));el.style.color=banco>=0?'var(--ok)':'var(--err)';}
 }
 async function renderHist(){
   const{data}=await db.from('registros').select('*').eq('user_id',CU.id).order('data',{ascending:false}).limit(10);
-  const el=g('hist-list');if(!data?.length){el.innerHTML='<div class="empty"><div class="empty-ico">📋</div><div class="empty-txt">Nenhum registro ainda</div></div>';return;}
+  const el=g('hist-list');if(!el)return;if(!data?.length){el.innerHTML='<div class="empty"><div class="empty-ico">📋</div><div class="empty-txt">Nenhum registro ainda</div></div>';return;}
   const target=cfg.hd*60;
   el.innerHTML=data.map(r=>{const d=new Date(r.data+'T12:00:00'),dn=d.getDate(),ds=DSHORT[d.getDay()];const tot=r.total_minutos||0,diff=tot-target;const cls=Math.abs(diff)<=cfg.tol?'z':diff>0?'p':'n';return`<div class="hist-row" onclick="openHistDetail('${r.id}')"><div class="hist-date-box"><div class="hdn">${dn}</div><div class="hds">${ds}</div></div><div style="flex:1"><div class="hist-h">${mhm(tot)}</div><div class="hist-t">${r.entrada||'--'} → ${r.saida||'--'}</div></div><span class="sal ${cls}">${(diff>=0?'+':'-')+mhm(Math.abs(diff))}</span></div>`;}).join('');
 }
@@ -868,7 +878,7 @@ async function renderWeek(){
     bars+=`<div class="week-col"><div class="whrs">${min>0?mhm(min):''}</div><div class="wbar ${cls}${isT?' td':''}" style="height:${barH}px"></div></div>`;
     days+=`<div style="flex:1;text-align:center;font-size:10px;font-weight:700;color:${isT?'var(--red)':'var(--text-3)'};text-transform:uppercase">${DSHORT[d.getDay()]}</div>`;
   }
-  g('week-chart').innerHTML=bars;const wd=g('week-days');if(wd)wd.innerHTML=days;txt('s-sem',mhm(weekTot));
+  const wc=g('week-chart');if(wc)wc.innerHTML=bars;const wd=g('week-days');if(wd)wd.innerHTML=days;txt('s-sem',mhm(weekTot));
 }
 
 // ── SOLICITAÇÕES COLABORADOR ──
@@ -905,7 +915,7 @@ async function loadSetores(){
 }
 
 // ── NOTIF ──
-function toggleNotif(){const on=g('notif-tog').checked;txt('notif-sub',on?'Lembretes ativos':'Ativar avisos automáticos');on?schedNotif():clearTimeout(ntTimer);}
+function toggleNotif(){if(!g('notif-tog'))return;const on=g('notif-tog').checked;txt('notif-sub',on?'Lembretes ativos':'Ativar avisos automáticos');on?schedNotif():clearTimeout(ntTimer);}
 function schedNotif(){if(!g('notif-tog').checked)return;clearTimeout(ntTimer);const r=rec||{};let msg=null;if(!r.entrada)msg='Não esqueça de registrar sua entrada!';else if(!r.saida_almoco)msg='Hora do almoço?';else if(!r.retorno_almoco)msg='Voltou do almoço? Registre!';else if(!r.saida){const p=calcPrev(r);if(p)msg=`Saída prevista às ${p}`;}if(msg&&'Notification'in window)Notification.requestPermission().then(p=>{if(p==='granted')ntTimer=setTimeout(()=>new Notification('⏱ Ponto',{body:msg}),30*60*1000);});}
 
 // ── EXPORT ──
@@ -928,7 +938,7 @@ async function exportPDF(){
 }
 async function confirmDeleteAll(){
   showModal('Apagar registros','Todos os seus registros serão excluídos permanentemente.',async()=>{
-    await db.from('registros').delete().eq('user_id',CU.id);rec=null;renderSteps();renderHome();await Promise.all([renderHist(),renderWeek()]);toast('Registros apagados','ok');
+    await db.from('registros').delete().eq('user_id',CU.id);rec=null;if(g('punch-steps'))renderSteps();renderHome();await Promise.all([renderHist(),renderWeek()]);toast('Registros apagados','ok');
   },true);
 }
 
@@ -1130,6 +1140,9 @@ async function loadAdminSol(){
   renderSolList('a-sol-list',data||[],users||[]);
 }
 async function loadAdminPontos(){
+  const now=new Date();
+  if(!g('a-pt-de').value)g('a-pt-de').value=new Date(now.getFullYear(),now.getMonth(),1).toISOString().slice(0,10);
+  if(!g('a-pt-ate').value)g('a-pt-ate').value=now.toISOString().slice(0,10);
   const de=v('a-pt-de'),ate=v('a-pt-ate');
   const{data:users}=await db.from('profiles').select('user_id,nome');
   let q=db.from('registros').select('*').order('data',{ascending:false}).limit(100);
@@ -1176,7 +1189,7 @@ function editSetor(id,nomeAtual){
 
 // ── CLOCK ──
 function startClock(){
-  function tick(){const now=new Date();const t=`${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;txt('hdr-t',t);txt('hdr-t2',t);txt('hdr-t3',t);txt('clk',t);txt('clk-date',`${DAYS[now.getDay()]}, ${now.getDate()} de ${MONTHS[now.getMonth()]}`);if(rec?.entrada&&!rec?.saida)txt('s-hoje',mhm(liveMin(rec)));}
+  function tick(){const now=new Date();const t=`${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;txt('hdr-t',t);txt('hdr-t2',t);txt('hdr-t3',t);if(g('clk'))txt('clk',t);if(g('clk-date'))txt('clk-date',`${DAYS[now.getDay()]}, ${now.getDate()} de ${MONTHS[now.getMonth()]}`);if(rec?.entrada&&!rec?.saida)txt('s-hoje',mhm(liveMin(rec)));}
   tick();setInterval(tick,1000);
 }
 
@@ -1201,8 +1214,14 @@ function navGestor(name,idx){
 function navAdmin(name,idx){
   document.querySelectorAll('#shell-admin .page').forEach(p=>p.classList.remove('on'));
   document.querySelectorAll('#shell-admin .tab').forEach(t=>t.classList.remove('on'));
-  g('pg-a-'+name.replace('a-','')).classList.add('on');
+  // Explicit page id mapping
+  const pageMap={'a-dash':'pg-a-dash','a-users':'pg-a-users','a-setores':'pg-a-setores','a-sol':'pg-a-sol','a-pontos':'pg-a-pontos'};
+  const pageId=pageMap[name]||('pg-'+name);
+  const el=g(pageId);if(el)el.classList.add('on');
   const tabs=document.querySelectorAll('#shell-admin .tab');if(tabs[idx])tabs[idx].classList.add('on');
+  if(name==='a-setores'){loadSetores_UI();}
+  if(name==='a-sol'){loadAdminSol();}
+  if(name==='a-users'){loadUsers();}
 }
 
 // ── MODAL ──
@@ -1247,15 +1266,6 @@ const hide=id=>{g(id).style.display='none';};
 function toast(msg,type=''){const t=g('toast');t.textContent=msg;t.className='toast on'+(type?' '+type:'');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('on'),2800);}
 </script>
 
-<script>
-let newWorker2=null;
-if('serviceWorker'in navigator){
-  navigator.serviceWorker.register('./sw.js').then(reg=>{
-    reg.update().catch(()=>{});
-    if(reg.waiting){newWorker2=reg.waiting;document.getElementById('upd-banner').classList.add('show');}
-    reg.addEventListener('updatefound',()=>{const nw=reg.installing;nw.addEventListener('statechange',()=>{if(nw.state==='installed'&&navigator.serviceWorker.controller){newWorker2=nw;document.getElementById('upd-banner').classList.add('show');}});});
-  }).catch(e=>console.warn('[SW]',e));
-}
-</script>
+
 </body>
 </html>
