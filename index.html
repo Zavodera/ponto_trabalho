@@ -259,7 +259,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       <div class="stat-grid"><div class="stat-tile t-red"><div class="st-icon">⏱️</div><div class="st-lbl">Hoje</div><div class="st-val" id="s-hoje">0h00</div></div><div class="stat-tile t-blue"><div class="st-icon">☕</div><div class="st-lbl">Descanso</div><div class="st-val" id="s-desc">0h00</div></div><div class="stat-tile t-green"><div class="st-icon">📊</div><div class="st-lbl">Banco</div><div class="st-val" id="s-banco">+0h00</div></div><div class="stat-tile t-orange"><div class="st-icon">📅</div><div class="st-lbl">Semana</div><div class="st-val" id="s-sem">0h00</div></div></div>
       <div class="card"><div class="card-lbl">Registro de hoje</div><div class="tl-row"><div class="tl-dot" style="background:#FFF0F2">🟢</div><div class="tl-info"><div class="tl-name">Entrada</div><div class="tl-sub">Início da jornada</div></div><div class="tl-time" id="tl-e">--:--</div></div><div class="tl-row"><div class="tl-dot" style="background:#FFF8E1">🟡</div><div class="tl-info"><div class="tl-name">Saída p/ almoço</div><div class="tl-sub">Início do intervalo</div></div><div class="tl-time" id="tl-sa">--:--</div></div><div class="tl-row"><div class="tl-dot" style="background:#EDF4FF">🔵</div><div class="tl-info"><div class="tl-name">Retorno almoço</div><div class="tl-sub">Fim do intervalo</div></div><div class="tl-time" id="tl-ra">--:--</div></div><div class="tl-row"><div class="tl-dot" style="background:#FFF1EE">🔴</div><div class="tl-info"><div class="tl-name">Saída</div><div class="tl-sub">Fim da jornada</div></div><div class="tl-time" id="tl-s">--:--</div></div><div class="tl-row" style="border-bottom:none"><div class="tl-dot" style="background:#EDFFF0">🎯</div><div class="tl-info"><div class="tl-name">Saída prevista</div><div class="tl-sub">Baseada na carga horária</div></div><div class="tl-time pred" id="tl-prev">--:--</div></div></div>
       <div class="card"><div class="card-lbl">Semana atual</div><div class="week-wrap" id="week-chart"></div><div style="display:flex;justify-content:space-between;margin-top:2px;padding-top:4px;border-top:1px solid var(--border-m)" id="week-days"></div></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">2.1.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.0.0</span></div></div>
     </div>
     <div class="page" id="pg-ponto">
       <div class="clk-hero"><div class="clk-big" id="clk">00:00:00</div><div class="clk-date" id="clk-date">--</div><div style="margin-top:1rem;font-size:13px;color:var(--text-2)" id="clk-st"></div></div>
@@ -267,7 +267,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       <button class="btn-punch" id="btn-punch" onclick="doPunch()">REGISTRAR PONTO</button>
       <div class="notif-card"><div style="font-size:22px">🔔</div><div style="flex:1"><div style="font-size:14px;font-weight:700">Lembrete de ponto</div><div style="font-size:12px;color:var(--text-2);margin-top:2px" id="notif-sub">Ativar avisos automáticos</div></div><label class="sw"><input type="checkbox" id="notif-tog" onchange="toggleNotif()"><div class="sw-track"></div><div class="sw-thumb"></div></label></div>
       <div class="card"><div class="card-lbl">Histórico recente</div><div id="hist-list"></div></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">2.1.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.0.0</span></div></div>
     </div>
     <div class="page" id="pg-config">
       <div class="pg-title">Configurações</div><div class="pg-sub">Personalize o app</div>
@@ -282,10 +282,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       <div class="sg-title">Suporte</div>
       <div class="slist"><div class="srow" onclick="navColab('feedback',4)" style="cursor:pointer"><div class="srow-ico" style="background:var(--red-pale)">💬</div><div class="srow-info"><div class="srow-lbl">Enviar feedback</div><div class="srow-sub">Sugestões, bugs ou elogios</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div></div>
       <div class="sg-title">Atualização</div>
-      <div class="slist"><div class="srow" onclick="manualUpdate()" style="cursor:pointer"><div class="srow-ico" style="background:var(--red-pale)">🔄</div><div class="srow-info"><div class="srow-lbl">Verificar atualização</div><div class="srow-sub" id="update-status">Versão <span class="app-ver">2.1.0</span></div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div><div class="srow" onclick="forceReload()" style="cursor:pointer"><div class="srow-ico" style="background:var(--info-bg)">⚡</div><div class="srow-info"><div class="srow-lbl">Forçar recarregamento</div><div class="srow-sub">Limpa cache e recarrega</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div></div>
+      <div class="slist"><div class="srow" onclick="manualUpdate()" style="cursor:pointer"><div class="srow-ico" style="background:var(--red-pale)">🔄</div><div class="srow-info"><div class="srow-lbl">Verificar atualização</div><div class="srow-sub" id="update-status">Versão <span class="app-ver">3.0.0</span></div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div><div class="srow" onclick="forceReload()" style="cursor:pointer"><div class="srow-ico" style="background:var(--info-bg)">⚡</div><div class="srow-info"><div class="srow-lbl">Forçar recarregamento</div><div class="srow-sub">Limpa cache e recarrega</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div></div>
       <div class="sg-title">Dados</div>
       <div class="slist"><div class="srow" onclick="confirmDeleteAll()" style="cursor:pointer"><div class="srow-ico" style="background:var(--err-bg)">🗑️</div><div class="srow-info"><div class="srow-lbl" style="color:var(--err)">Apagar meus registros</div><div class="srow-sub">Ação irreversível</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">2.1.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.0.0</span></div></div>
     </div>
     <div class="page" id="pg-feedback">
       <div class="pg-title">Feedback</div><div class="pg-sub">Sua opinião melhora o app</div>
@@ -295,7 +295,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
         <button class="btn-red" onclick="sendFeedback()" id="fb-send-btn">Enviar feedback</button>
       </div>
       <div class="fb-sent" id="fb-sent-wrap"><div style="font-size:52px;margin-bottom:1rem">🎉</div><div style="font-size:20px;font-weight:800;margin-bottom:.5rem">Feedback enviado!</div><div style="font-size:14px;color:var(--text-2)">Paulo Santos irá analisar sua sugestão.</div><button class="btn-red" style="margin-top:1.5rem;max-width:200px" onclick="resetFeedback()">Enviar outro</button></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">2.1.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.0.0</span></div></div>
     </div>
     <div class="page" id="pg-conta">
       <div style="background:var(--bg-card);border:1px solid var(--border-m);border-radius:var(--r-xl);padding:1.75rem 1.25rem 1.25rem;text-align:center;margin-bottom:1rem;box-shadow:var(--sh-sm)">
@@ -316,7 +316,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       <button class="btn-red" onclick="saveProfile()" style="margin-bottom:.6rem">Salvar perfil</button>
       <button class="btn-out" onclick="doLogout()">Sair da conta</button>
       <div class="card" style="margin-top:1rem"><div class="card-lbl">Solicitações de ajuste de ponto</div><div id="minhas-solicitacoes"></div><button class="btn-ghost" onclick="openSolicitacao()" style="margin-top:.5rem">➕ Nova solicitação</button></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">2.1.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.0.0</span></div></div>
     </div>
   </div>
   <div class="tabs">
@@ -335,18 +335,18 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       <div class="gestor-hero"><div class="h-greet" style="color:rgba(255,255,255,.75)">Painel do gestor</div><div class="h-name" id="g-setor-nome">Meu setor</div><div class="h-date" id="g-live-date" style="color:rgba(255,255,255,.85)">--</div><div class="h-pill" style="background:rgba(255,255,255,.2)"><div class="h-dot"></div><span id="g-trabalhando">0 trabalhando agora</span></div></div>
       <div class="card-lbl" style="padding:0 .25rem;margin-bottom:.75rem">Colaboradores — ao vivo</div>
       <div class="live-grid" id="live-grid"></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">2.1.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.0.0</span></div></div>
     </div>
     <div class="page" id="pg-g-hist">
       <div class="pg-title">Histórico</div><div class="pg-sub">Registros do setor</div>
       <div class="card"><div class="exp-dates" style="margin-bottom:.5rem"><input type="date" id="g-hist-de"><input type="date" id="g-hist-ate"></div><button class="btn-ghost" onclick="loadGestorHist()" style="margin-bottom:0">🔍 Filtrar</button></div>
       <div id="g-hist-list"></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">2.1.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.0.0</span></div></div>
     </div>
     <div class="page" id="pg-g-sol">
       <div class="pg-title">Solicitações</div><div class="pg-sub">Ajustes de ponto pendentes</div>
       <div id="g-sol-list"></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">2.1.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.0.0</span></div></div>
     </div>
     <div class="page" id="pg-g-perfil">
       <div class="pg-title">Meu perfil</div>
@@ -377,8 +377,41 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
           <div><div style="font-size:14px;font-weight:700;color:var(--ok)">Setor configurado</div><div style="font-size:13px;color:var(--text-2);margin-top:3px">Para alterar, solicite ao administrador.</div></div>
         </div>
       </div>
+      <div class="card" style="margin-top:.5rem">
+        <div class="card-lbl">Identidade visual da empresa</div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem">
+          <div id="emp-logo-preview" style="width:56px;height:56px;border-radius:14px;background:var(--red-pale);border:2px solid var(--border-m);display:flex;align-items:center;justify-content:center;font-size:22px;overflow:hidden;flex-shrink:0">🏢</div>
+          <div style="flex:1">
+            <div style="font-size:13px;font-weight:700;margin-bottom:4px" id="emp-nome-preview">--</div>
+            <div style="font-size:11px;color:var(--text-3)">Logo e cores da empresa</div>
+          </div>
+        </div>
+        <div class="pf-f"><label>Nome da empresa</label><input type="text" id="emp-nome-input" placeholder="Nome exibido no app"></div>
+        <div class="pf-f">
+          <label>Logo da empresa (URL ou upload)</label>
+          <input type="text" id="emp-logo-url" placeholder="https://... ou use o botão abaixo" oninput="previewEmpLogo()">
+          <input type="file" id="emp-logo-file" accept="image/*" style="margin-top:6px" onchange="uploadEmpLogo(this)">
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem">
+          <div class="pf-f" style="margin-bottom:0">
+            <label>Cor primária</label>
+            <div style="display:flex;align-items:center;gap:8px">
+              <input type="color" id="emp-cor1" value="#FF385C" style="width:44px;height:44px;border-radius:8px;border:1.5px solid var(--border);cursor:pointer;padding:2px" oninput="previewEmpCores()">
+              <input type="text" id="emp-cor1-hex" value="#FF385C" style="flex:1;background:var(--bg-in);border:1.5px solid var(--border);border-radius:var(--r-sm);padding:.5rem .75rem;color:var(--text-1);font-family:var(--mono);font-size:13px;outline:none" oninput="syncColorPicker('emp-cor1','emp-cor1-hex')">
+            </div>
+          </div>
+          <div class="pf-f" style="margin-bottom:0">
+            <label>Cor secundária</label>
+            <div style="display:flex;align-items:center;gap:8px">
+              <input type="color" id="emp-cor2" value="#D93025" style="width:44px;height:44px;border-radius:8px;border:1.5px solid var(--border);cursor:pointer;padding:2px" oninput="previewEmpCores()">
+              <input type="text" id="emp-cor2-hex" value="#D93025" style="flex:1;background:var(--bg-in);border:1.5px solid var(--border);border-radius:var(--r-sm);padding:.5rem .75rem;color:var(--text-1);font-family:var(--mono);font-size:13px;outline:none" oninput="syncColorPicker('emp-cor2','emp-cor2-hex')">
+            </div>
+          </div>
+        </div>
+        <button class="btn-red" onclick="salvarEmpresaBranding()">Salvar identidade visual</button>
+      </div>
       <button class="btn-out" onclick="doLogout()" style="margin-top:.5rem">Sair da conta</button>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">2.1.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.0.0</span></div></div>
     </div>
   </div>
   <div class="tabs">
@@ -398,30 +431,30 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       <div class="admin-stats"><div class="admin-stat"><div class="admin-stat-val" id="a-total-users">--</div><div class="admin-stat-lbl">Usuários</div></div><div class="admin-stat"><div class="admin-stat-val" id="a-total-setores">--</div><div class="admin-stat-lbl">Setores</div></div><div class="admin-stat"><div class="admin-stat-val" id="a-total-pendentes">--</div><div class="admin-stat-lbl">Pendentes</div></div></div>
       <div class="card"><div class="card-lbl">Ações rápidas</div><div class="slist"><div class="srow" onclick="navAdmin('a-users',1)" style="cursor:pointer"><div class="srow-ico" style="background:var(--red-pale)">👥</div><div class="srow-info"><div class="srow-lbl">Gerenciar usuários</div><div class="srow-sub">Promover, editar, excluir</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div><div class="srow" onclick="navAdmin('a-setores',3)" style="cursor:pointer"><div class="srow-ico" style="background:var(--info-bg)">🏢</div><div class="srow-info"><div class="srow-lbl">Gerenciar setores</div><div class="srow-sub">Criar e atribuir gestores</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div><div class="srow" onclick="navAdmin('a-sol',2)" style="cursor:pointer"><div class="srow-ico" style="background:var(--warn-bg)">📝</div><div class="srow-info"><div class="srow-lbl">Solicitações de ajuste</div><div class="srow-sub" id="a-pendentes-lbl">Ver todas</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div><div class="srow" onclick="navAdmin('a-pontos',4)" style="cursor:pointer"><div class="srow-ico" style="background:var(--ok-bg)">🕐</div><div class="srow-info"><div class="srow-lbl">Todos os pontos</div><div class="srow-sub">Visão global da empresa</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div></div></div>
       <button class="btn-out" onclick="doLogout()" style="margin-top:.5rem">Sair da conta</button>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">2.1.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.0.0</span></div></div>
     </div>
     <div class="page" id="pg-a-users">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><button onclick="navAdmin('a-dash',0)" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-2)">←</button><div class="pg-title" style="margin-bottom:0">Usuários</div></div>
       <div class="field" style="margin-bottom:.75rem"><input type="text" id="user-search" placeholder="🔍 Buscar por nome..." oninput="filterUsers()"></div>
       <div class="slist" id="users-list"><div class="empty"><div class="empty-ico">👥</div><div class="empty-txt">Carregando...</div></div></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">2.1.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.0.0</span></div></div>
     </div>
     <div class="page" id="pg-a-sol">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><button onclick="navAdmin('a-dash',0)" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-2)">←</button><div class="pg-title" style="margin-bottom:0">Solicitações</div></div>
       <div id="a-sol-list"><div class="empty"><div class="empty-ico">📝</div><div class="empty-txt">Carregando...</div></div></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">2.1.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.0.0</span></div></div>
     </div>
     <div class="page" id="pg-a-setores">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><button onclick="navAdmin('a-dash',0)" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-2)">←</button><div class="pg-title" style="margin-bottom:0">Setores</div></div>
       <div class="card"><div class="card-lbl">Criar novo setor</div><div class="pf-f"><input type="text" id="novo-setor-nome" placeholder="Nome do setor (ex: Produção, TI...)"></div><button class="btn-red" onclick="criarSetor()">Criar setor</button></div>
       <div id="setores-list"></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">2.1.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.0.0</span></div></div>
     </div>
     <div class="page" id="pg-a-pontos">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><button onclick="navAdmin('a-dash',0)" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-2)">←</button><div class="pg-title" style="margin-bottom:0">Todos os pontos</div></div>
       <div class="card"><div class="exp-dates" style="margin-bottom:.5rem"><input type="date" id="a-pt-de"><input type="date" id="a-pt-ate"></div><button class="btn-ghost" onclick="loadAdminPontos()" style="margin-bottom:0">🔍 Filtrar</button></div>
       <div id="a-pontos-list"></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">2.1.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">3.0.0</span></div></div>
     </div>
   </div>
   <div class="tabs">
@@ -429,6 +462,61 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
     <div class="tab" id="tb-a-users" onclick="navAdmin('a-users',1);loadUsers()"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="22" height="22"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>Usuários</div>
     <div class="tab" id="tb-a-sol" onclick="navAdmin('a-sol',2);loadAdminSol()"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="22" height="22"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>Solicit.</div>
     <div class="tab" id="tb-a-config" onclick="navAdmin('a-setores',3);loadSetores_UI()"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="22" height="22"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Setores</div>
+  </div>
+</div>
+
+<!-- SUPER ADMIN SHELL -->
+<div class="app-shell" id="shell-super">
+  <div class="hdr">
+    <div class="hdr-left"><div class="hdr-logo"><svg viewBox="0 0 24 24"><path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V8z"/></svg></div><div class="hdr-brand">PontiFy<span style="color:#7C3AED">⬡</span></div></div>
+    <div class="hdr-right"><span class="role-badge" style="background:#F5F3FF;color:#7C3AED">Super Admin</span><div class="hdr-time" id="hdr-t4">--:--:--</div></div>
+  </div>
+  <div class="pages">
+    <!-- DASHBOARD SUPER -->
+    <div class="page on" id="pg-s-dash">
+      <div style="background:linear-gradient(135deg,#7C3AED 0%,#9F67FF 60%,#C084FC 100%);border-radius:var(--r-xl);padding:1.5rem;margin-bottom:1rem;position:relative;overflow:hidden">
+        <div style="position:absolute;right:-20px;top:-20px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.08)"></div>
+        <div style="font-size:13px;font-weight:600;color:rgba(255,255,255,.75);text-transform:uppercase;letter-spacing:.06em">Painel Master</div>
+        <div style="font-size:22px;font-weight:800;color:#fff;margin:4px 0 .75rem">Paulo Santos</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.8)" id="s-date">--</div>
+        <div style="display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.2);border-radius:var(--r-full);padding:4px 12px;font-size:12px;font-weight:600;color:#fff;margin-top:.75rem">🔐 Acesso total</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1rem">
+        <div class="stat-tile" style="border-color:rgba(124,58,237,.2)"><div class="st-icon" style="background:#F5F3FF">🏢</div><div class="st-lbl">Empresas</div><div class="st-val" id="s-total-emp" style="color:#7C3AED">--</div></div>
+        <div class="stat-tile" style="border-color:rgba(124,58,237,.2)"><div class="st-icon" style="background:#F5F3FF">👥</div><div class="st-lbl">Usuários</div><div class="st-val" id="s-total-usr" style="color:#7C3AED">--</div></div>
+      </div>
+      <div class="card">
+        <div class="card-lbl">Empresas cadastradas</div>
+        <div id="s-emp-list"><div class="empty"><div class="empty-ico">🏢</div><div class="empty-txt">Carregando...</div></div></div>
+      </div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 Paulo Santos · Versão <span class="app-ver">3.0.0</span></div></div>
+    </div>
+    <!-- NOVA EMPRESA -->
+    <div class="page" id="pg-s-nova">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><button onclick="navSuper('s-dash',0)" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-2)">←</button><div class="pg-title" style="margin-bottom:0">Nova empresa</div></div>
+      <div style="background:var(--bg-card);border:1px solid var(--border-m);border-radius:var(--r-lg);padding:1.25rem;margin-bottom:1rem;box-shadow:var(--sh-sm)">
+        <div class="pf-f"><label>Nome da empresa</label><input type="text" id="ne-nome" placeholder="Ex: BRLog Logística"></div>
+        <div class="pf-f"><label>Slug (identificador único)</label><input type="text" id="ne-slug" placeholder="ex: brlog" oninput="this.value=this.value.toLowerCase().replace(/[^a-z0-9-]/g,'')"><div style="font-size:11px;color:var(--text-3);margin-top:4px">Link gerado: pontify.app?empresa=<span id="ne-slug-preview" style="font-weight:700;color:var(--purple)">--</span></div></div>
+        <div class="pf-f"><label>Plano</label><select id="ne-plano"><option value="starter">Starter — até 20 usuários</option><option value="business" selected>Business — até 100 usuários</option><option value="enterprise">Enterprise — ilimitado</option></select></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <div class="pf-f" style="margin-bottom:0"><label>Cor primária</label><div style="display:flex;gap:8px;align-items:center"><input type="color" id="ne-cor1" value="#FF385C" style="width:44px;height:44px;border-radius:8px;border:1.5px solid var(--border);cursor:pointer;padding:2px"><input type="text" id="ne-cor1h" value="#FF385C" style="flex:1;background:var(--bg-in);border:1.5px solid var(--border);border-radius:var(--r-sm);padding:.5rem .75rem;color:var(--text-1);font-family:var(--mono);font-size:13px;outline:none" oninput="syncColorPicker('ne-cor1','ne-cor1h')"></div></div>
+          <div class="pf-f" style="margin-bottom:0"><label>Cor secundária</label><div style="display:flex;gap:8px;align-items:center"><input type="color" id="ne-cor2" value="#D93025" style="width:44px;height:44px;border-radius:8px;border:1.5px solid var(--border);cursor:pointer;padding:2px"><input type="text" id="ne-cor2h" value="#D93025" style="flex:1;background:var(--bg-in);border:1.5px solid var(--border);border-radius:var(--r-sm);padding:.5rem .75rem;color:var(--text-1);font-family:var(--mono);font-size:13px;outline:none" oninput="syncColorPicker('ne-cor2','ne-cor2h')"></div></div>
+        </div>
+      </div>
+      <button class="btn-red" style="background:#7C3AED;box-shadow:0 4px 16px rgba(124,58,237,.35)" onclick="criarEmpresa()">Criar empresa</button>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 Paulo Santos · Versão <span class="app-ver">3.0.0</span></div></div>
+    </div>
+    <!-- DETALHE EMPRESA -->
+    <div class="page" id="pg-s-emp">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><button onclick="navSuper('s-dash',0)" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-2)">←</button><div class="pg-title" style="margin-bottom:0" id="s-emp-title">Empresa</div></div>
+      <div id="s-emp-detail"></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 Paulo Santos · Versão <span class="app-ver">3.0.0</span></div></div>
+    </div>
+  </div>
+  <div class="tabs">
+    <div class="tab on" id="tb-s-dash" onclick="navSuper('s-dash',0)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="22" height="22"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Painel</div>
+    <div class="tab" id="tb-s-nova" onclick="navSuper('s-nova',1)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>Nova Empresa</div>
+    <div class="tab" id="tb-s-sair" onclick="doLogout()"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="22" height="22"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/></svg>Sair</div>
   </div>
 </div>
 
@@ -454,6 +542,7 @@ const db=createClient(SURL,SKEY,{auth:{persistSession:true,storageKey:'ponto-ses
 
 let CU=null,profile={},cfg={hd:8,al:75,tol:10,notif:false,sem:false},rec=null,ntTimer=null;
 let allUsers=[],allSetores=[],liveInterval=null,newSW=null;
+let empresa={id:null,slug:null,nome:'PontiFy',logo_url:null,cor_primaria:'#FF385C',cor_secundaria:'#D93025'};
 const STEPS=[{k:'entrada',l:'Entrada',ic:'🟢'},{k:'saida_almoco',l:'Saída p/ almoço',ic:'🟡'},{k:'retorno_almoco',l:'Retorno do almoço',ic:'🔵'},{k:'saida',l:'Saída',ic:'🔴'}];
 const DAYS=['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
 const DSHORT=['Dom','Seg','Ter','Qua','Qui','Sex','Sab'];
@@ -487,6 +576,9 @@ function closeModal(){g('m-ov').classList.remove('on');}
 window.addEventListener('load',async()=>{
   applyTheme(localStorage.getItem('ponto-theme')||'light');
 
+  // ── Resolve empresa pelo ?empresa= na URL ou localStorage ──
+  await resolveEmpresa();
+
   // ── Inicia animação Lottie de abertura ──
   let lottieAnim = null;
   try {
@@ -503,16 +595,10 @@ window.addEventListener('load',async()=>{
     console.warn('[Splash] Lottie não carregou:', e);
   }
 
-  // ── Verifica sessão em paralelo (não bloqueia a animação) ──
   const sessionPromise = db.auth.getSession();
-
-  // ── Espera mínimo 3s (duração da animação) ──
   const splashPromise = new Promise(res => setTimeout(res, 3000));
-
-  // Aguarda os dois ao mesmo tempo
   const [{ data: { session } }] = await Promise.all([sessionPromise, splashPromise]);
 
-  // Para a animação e mostra tela correta com fade
   if(lottieAnim) lottieAnim.destroy();
   const ldEl = document.getElementById('ld');
   if(ldEl){
@@ -530,7 +616,14 @@ async function boot(){
   await loadProfile();
   const role=profile.role||'colaborador';
   console.log('[Boot] Iniciando shell para role:',role);
-  if(role==='admin'){
+  // Aplica branding da empresa do usuário (sobrescreve o da URL se diferente)
+  if(profile.empresa_id && profile.empresa_id !== empresa.id){
+    const{data:emp}=await db.from('empresas').select('*').eq('id',profile.empresa_id).single();
+    if(emp){empresa=emp;applyEmpresaBranding(emp);}
+  }
+  if(role==='super_admin'){
+    show('shell-super','flex');await bootSuper();
+  }else if(role==='admin'){
     show('shell-admin','flex');await bootAdmin();
   }else if(role==='gestor'){
     show('shell-gestor','flex');await bootGestor();
@@ -539,6 +632,82 @@ async function boot(){
   }
   startClock();
   swSetup();
+}
+
+// ── EMPRESA / MULTI-TENANT ──────────────────────────
+async function resolveEmpresa(){
+  // 1. Tenta pegar slug da URL: ?empresa=brlog
+  const urlParams=new URLSearchParams(window.location.search);
+  const slugFromUrl=urlParams.get('empresa');
+  if(slugFromUrl){
+    localStorage.setItem('pontify-empresa',slugFromUrl);
+    // Limpa o param da URL sem reload
+    const url=new URL(window.location.href);
+    url.searchParams.delete('empresa');
+    window.history.replaceState({},'',url.toString());
+  }
+  // 2. Usa o que está salvo no localStorage
+  const slug=localStorage.getItem('pontify-empresa');
+  if(!slug){
+    // Sem empresa = super_admin ou acesso direto, usa padrão
+    applyEmpresaBranding(empresa);
+    return;
+  }
+  // 3. Busca empresa no Supabase
+  try{
+    const{data,error}=await db.from('empresas').select('*').eq('slug',slug).eq('ativo',true).single();
+    if(data){
+      empresa=data;
+      applyEmpresaBranding(data);
+      console.log('[Empresa] Carregada:',data.nome);
+    }else{
+      console.warn('[Empresa] Slug não encontrado:',slug);
+      localStorage.removeItem('pontify-empresa');
+    }
+  }catch(e){console.warn('[Empresa] Erro ao buscar:',e);}
+}
+
+function applyEmpresaBranding(emp){
+  if(!emp)return;
+  const root=document.documentElement;
+  const cor=emp.cor_primaria||'#FF385C';
+  const corDark=emp.cor_secundaria||'#D93025';
+  // Calcula variantes da cor automaticamente
+  root.style.setProperty('--red',cor);
+  root.style.setProperty('--red-dark',corDark);
+  root.style.setProperty('--red-light',hexAlpha(cor,0.7));
+  root.style.setProperty('--red-pale',hexAlpha(cor,0.08));
+  // Atualiza meta theme-color
+  const meta=document.querySelector('meta[name="theme-color"]');
+  if(meta)meta.setAttribute('content',cor);
+  // Popula tela de login com dados da empresa
+  syncAuthHero(emp);
+}
+
+function hexAlpha(hex,alpha){
+  // Converte #RRGGBB para rgba() para uso em pale/light
+  const r=parseInt(hex.slice(1,3),16);
+  const g=parseInt(hex.slice(3,5),16);
+  const b=parseInt(hex.slice(5,7),16);
+  if(alpha>=0.5)return`rgb(${Math.round(r*alpha+255*(1-alpha))},${Math.round(g*alpha+255*(1-alpha))},${Math.round(b*alpha+255*(1-alpha))})`;
+  return`rgba(${r},${g},${b},${alpha})`;
+}
+
+function syncAuthHero(emp){
+  // Atualiza a hero da tela de login com dados da empresa
+  const hero=document.querySelector('.a-hero');
+  if(hero&&emp.cor_primaria){
+    hero.style.background=`linear-gradient(160deg,${emp.cor_primaria} 0%,${emp.cor_secundaria||emp.cor_primaria} 100%)`;
+  }
+  const h1=document.querySelector('.a-hero h1');
+  if(h1)h1.textContent=emp.nome||'PontiFy';
+  const p=document.querySelector('.a-hero p');
+  if(p)p.textContent='Controle sua jornada com precisão';
+  // Logo da empresa no hero (se existir)
+  const ico=document.querySelector('.a-hero-ico');
+  if(ico&&emp.logo_url){
+    ico.innerHTML=`<img src="${emp.logo_url}" style="width:44px;height:44px;object-fit:contain;border-radius:10px">`;
+  }
 }
 
 // ── THEME ──────────────────────────────────────────
@@ -573,6 +742,10 @@ async function doSignup(){
   const{data,error}=await db.auth.signUp({email,password:pass,options:{data:{name}}});
   if(error)return amsg(error.message,'err');
   amsg('Conta criada!','ok');CU=data.user;
+  // Ao criar conta, associa automaticamente à empresa da URL/localStorage
+  if(empresa.id){
+    await db.from('profiles').upsert({user_id:data.user.id,nome:name,empresa_id:empresa.id,role:'colaborador'},{onConflict:'user_id'});
+  }
   if(data.session)await boot();
 }
 async function doLogout(){
@@ -660,7 +833,10 @@ async function saveConfig(){
 
 // ── SETORES ───────────────────────────────────────
 async function loadSetores(){
-  const{data}=await db.from('setores').select('*').order('nome');
+  const empId=empresa.id||profile.empresa_id;
+  let q=db.from('setores').select('*').order('nome');
+  if(empId&&profile.role!=='super_admin')q=q.eq('empresa_id',empId);
+  const{data}=await q;
   allSetores=data||[];
 }
 
@@ -685,7 +861,7 @@ function nextStep(r){r=r||{};if(r.saida)return 4;if(r.retorno_almoco)return 3;if
 async function doPunch(){
   const now=new Date();const ts=`${pad(now.getHours())}:${pad(now.getMinutes())}`;const ds=todayKey();
   if(!rec){
-    const{data,error}=await db.from('registros').insert({user_id:CU.id,data:ds,entrada:ts}).select().single();
+    const{data,error}=await db.from('registros').insert({user_id:CU.id,data:ds,entrada:ts,empresa_id:empresa.id||profile.empresa_id||null}).select().single();
     if(error)return toast('Erro ao registrar','err');rec=data;
   }else{
     const fld=!rec.saida_almoco?'saida_almoco':!rec.retorno_almoco?'retorno_almoco':!rec.saida?'saida':null;
@@ -757,7 +933,7 @@ function openSolicitacao(){
   showModal('Solicitar correção de ponto','Preencha os dados abaixo:',async()=>{
     const data=v('sol-data'),campo=v('sol-campo'),valor=v('sol-valor'),just=v('sol-just').trim();
     if(!data||!valor||!just)return toast('Preencha todos os campos','err');
-    const{error}=await db.from('solicitacoes_ajuste').insert({user_id:CU.id,data,campo,valor_solicitado:valor,justificativa:just,status:'pendente'});
+    const{error}=await db.from('solicitacoes_ajuste').insert({user_id:CU.id,data,campo,valor_solicitado:valor,justificativa:just,status:'pendente',empresa_id:empresa.id||profile.empresa_id||null});
     if(error){toast('Erro ao enviar','err');console.error(error);return;}
     toast('Solicitação enviada!','ok');loadMinhasSolicitacoes();
   },false,form,'Enviar solicitação');
@@ -923,14 +1099,20 @@ async function bootAdmin(){
   await Promise.all([loadSetores(),loadUsers()]);
   const now=new Date();txt('a-date',`${DAYS[now.getDay()]}, ${now.getDate()} de ${MONTHS[now.getMonth()]}`);
   loadAdminStats();loadAdminSol();
+  loadEmpresaBrandingUI();
 }
 async function loadAdminStats(){
-  const[{count:u},{count:s},{count:p}]=await Promise.all([db.from('profiles').select('*',{count:'exact',head:true}),db.from('setores').select('*',{count:'exact',head:true}),db.from('solicitacoes_ajuste').select('*',{count:'exact',head:true}).eq('status','pendente')]);
+  const empId=empresa.id||profile.empresa_id;
+  const base=(t)=>empId&&profile.role!=='super_admin'?db.from(t).select('*',{count:'exact',head:true}).eq('empresa_id',empId):db.from(t).select('*',{count:'exact',head:true});
+  const[{count:u},{count:s},{count:p}]=await Promise.all([base('profiles'),base('setores'),empId?db.from('solicitacoes_ajuste').select('*',{count:'exact',head:true}).eq('empresa_id',empId).eq('status','pendente'):db.from('solicitacoes_ajuste').select('*',{count:'exact',head:true}).eq('status','pendente')]);
   txt('a-total-users',u||0);txt('a-total-setores',s||0);txt('a-total-pendentes',p||0);
   if(p>0)txt('a-pendentes-lbl',`${p} pendente${p>1?'s':''}`);
 }
 async function loadUsers(){
-  const{data}=await db.from('profiles').select('*').order('nome');
+  const empId=empresa.id||profile.empresa_id;
+  let q=db.from('profiles').select('*').order('nome');
+  if(empId&&profile.role!=='super_admin')q=q.eq('empresa_id',empId);
+  const{data}=await q;
   allUsers=data||[];renderUsers(allUsers);
 }
 function filterUsers(){const q=v('user-search').toLowerCase();renderUsers(allUsers.filter(u=>(u.nome||'').toLowerCase().includes(q)||(u.user_id||'').includes(q)));}
@@ -976,7 +1158,7 @@ async function loadAdminPontos(){
 }
 async function criarSetor(){
   const nome=v('novo-setor-nome').trim();if(!nome)return toast('Digite o nome do setor','err');
-  const{error}=await db.from('setores').insert({nome});if(error)return toast('Erro ao criar','err');
+  const{error}=await db.from('setores').insert({nome,empresa_id:empresa.id||profile.empresa_id||null});if(error)return toast('Erro ao criar','err');
   toast('Setor criado!','ok');g('novo-setor-nome').value='';await loadSetores();loadSetores_UI();loadAdminStats();
 }
 async function loadSetores_UI(){
@@ -1001,7 +1183,7 @@ function startClock(){
   let _lastDay=todayKey();
   function tick(){
     const now=new Date();const t=`${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
-    txt('hdr-t',t);txt('hdr-t2',t);txt('hdr-t3',t);
+    txt('hdr-t',t);txt('hdr-t2',t);txt('hdr-t3',t);txt('hdr-t4',t);
     if(g('clk'))txt('clk',t);
     if(g('clk-date'))txt('clk-date',`${DAYS[now.getDay()]}, ${now.getDate()} de ${MONTHS[now.getMonth()]}`);
     if(rec?.entrada&&!rec?.saida)txt('s-hoje',mhm(liveMin(rec)));
@@ -1048,8 +1230,157 @@ function navAdmin(name,idx){
   if(name==='a-pontos')loadAdminPontos();
 }
 
+// ── SUPER ADMIN ──────────────────────────────────────
+async function bootSuper(){
+  const now=new Date();
+  txt('s-date',`${DAYS[now.getDay()]}, ${now.getDate()} de ${MONTHS[now.getMonth()]}`);
+  await loadSuperStats();
+  await loadSuperEmpresas();
+}
+async function loadSuperStats(){
+  const[{count:e},{count:u}]=await Promise.all([
+    db.from('empresas').select('*',{count:'exact',head:true}).eq('ativo',true),
+    db.from('profiles').select('*',{count:'exact',head:true})
+  ]);
+  txt('s-total-emp',e||0);txt('s-total-usr',u||0);
+}
+async function loadSuperEmpresas(){
+  const{data}=await db.from('empresas').select('*').order('criado_em',{ascending:false});
+  const el=g('s-emp-list');if(!el)return;
+  if(!data?.length){el.innerHTML='<div class="empty"><div class="empty-ico">🏢</div><div class="empty-txt">Nenhuma empresa cadastrada</div></div>';return;}
+  el.innerHTML=data.map(e=>`<div style="display:flex;align-items:center;gap:12px;padding:.85rem 0;border-bottom:1px solid var(--border-m);cursor:pointer" onclick="verEmpresa('${e.id}')">
+    <div style="width:42px;height:42px;border-radius:12px;background:${e.cor_primaria||'#FF385C'}22;border:2px solid ${e.cor_primaria||'#FF385C'}44;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;overflow:hidden">${e.logo_url?`<img src="${e.logo_url}" style="width:100%;height:100%;object-fit:cover;border-radius:10px">`:'🏢'}</div>
+    <div style="flex:1;min-width:0">
+      <div style="font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${e.nome}</div>
+      <div style="font-size:11px;color:var(--text-3);margin-top:2px;font-family:var(--mono)">${e.slug} · ${e.plano}</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
+      <span style="font-size:10px;padding:3px 8px;border-radius:20px;font-weight:700;background:${e.ativo?'var(--ok-bg)':'var(--err-bg)'};color:${e.ativo?'var(--ok)':'var(--err)'}">${e.ativo?'Ativo':'Inativo'}</span>
+      <div style="width:16px;height:16px;border-radius:50%;background:${e.cor_primaria||'#FF385C'}"></div>
+    </div>
+  </div>`).join('');
+}
+async function criarEmpresa(){
+  const nome=v('ne-nome').trim(),slug=v('ne-slug').trim(),plano=v('ne-plano');
+  const cor1=v('ne-cor1h')||v('ne-cor1'),cor2=v('ne-cor2h')||v('ne-cor2');
+  if(!nome||!slug)return toast('Preencha nome e slug','err');
+  if(!/^[a-z0-9-]+$/.test(slug))return toast('Slug: apenas letras minúsculas, números e -','err');
+  const{error}=await db.from('empresas').insert({nome,slug,plano,cor_primaria:cor1,cor_secundaria:cor2,ativo:true});
+  if(error){toast(error.code==='23505'?'Slug já existe!':'Erro ao criar: '+error.message,'err');return;}
+  toast('Empresa criada! 🎉','ok');
+  g('ne-nome').value='';g('ne-slug').value='';
+  txt('ne-slug-preview','--');
+  navSuper('s-dash',0);
+  await loadSuperStats();await loadSuperEmpresas();
+}
+async function verEmpresa(id){
+  const{data:emp}=await db.from('empresas').select('*').eq('id',id).single();
+  if(!emp)return;
+  txt('s-emp-title',emp.nome);
+  const{count:userCount}=await db.from('profiles').select('*',{count:'exact',head:true}).eq('empresa_id',id);
+  const link=`${window.location.origin}${window.location.pathname}?empresa=${emp.slug}`;
+  g('s-emp-detail').innerHTML=`
+    <div style="background:var(--bg-card);border:1px solid var(--border-m);border-radius:var(--r-xl);padding:1.5rem;margin-bottom:1rem;text-align:center">
+      <div style="width:64px;height:64px;border-radius:18px;background:${emp.cor_primaria}22;border:2px solid ${emp.cor_primaria}55;display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto .75rem;overflow:hidden">${emp.logo_url?`<img src="${emp.logo_url}" style="width:100%;height:100%;object-fit:cover;border-radius:16px">`:'🏢'}</div>
+      <div style="font-size:20px;font-weight:800">${emp.nome}</div>
+      <div style="font-size:12px;color:var(--text-3);margin-top:4px;font-family:var(--mono)">${emp.slug} · ${emp.plano} · ${userCount||0} usuários</div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:.75rem">
+        <div style="width:18px;height:18px;border-radius:50%;background:${emp.cor_primaria}"></div>
+        <span style="font-size:12px;font-family:var(--mono);color:var(--text-2)">${emp.cor_primaria}</span>
+        <div style="width:18px;height:18px;border-radius:50%;background:${emp.cor_secundaria}"></div>
+        <span style="font-size:12px;font-family:var(--mono);color:var(--text-2)">${emp.cor_secundaria}</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-lbl">Link de acesso</div>
+      <div style="background:var(--bg-s);border:1px solid var(--border-m);border-radius:var(--r-sm);padding:.75rem 1rem;font-size:12px;font-family:var(--mono);color:var(--text-2);word-break:break-all;margin-bottom:.75rem">${link}</div>
+      <button class="btn-ghost" onclick="navigator.clipboard.writeText('${link}').then(()=>toast('Link copiado!','ok'))">📋 Copiar link de acesso</button>
+    </div>
+    <div class="card">
+      <div class="card-lbl">Ações</div>
+      <button class="btn-ghost" onclick="toggleEmpresaAtivo('${id}',${emp.ativo})">${emp.ativo?'⏸ Desativar empresa':'▶️ Reativar empresa'}</button>
+    </div>`;
+  navSuper('s-emp',2);
+}
+async function toggleEmpresaAtivo(id,atualAtivo){
+  showModal(atualAtivo?'Desativar empresa':'Reativar empresa',atualAtivo?'Usuários não conseguirão mais logar.':'Empresa será reativada.',async()=>{
+    await db.from('empresas').update({ativo:!atualAtivo}).eq('id',id);
+    toast(atualAtivo?'Empresa desativada':'Empresa reativada',atualAtivo?'err':'ok');
+    navSuper('s-dash',0);await loadSuperEmpresas();
+  },atualAtivo);
+}
+function navSuper(name,idx){
+  document.querySelectorAll('#shell-super .page').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('#shell-super .tab').forEach(t=>t.classList.remove('on'));
+  const pm={'s-dash':'pg-s-dash','s-nova':'pg-s-nova','s-emp':'pg-s-emp'};
+  const el=g(pm[name]);if(el)el.classList.add('on');
+  const tabs=document.querySelectorAll('#shell-super .tab');if(tabs[idx])tabs[idx].classList.add('on');
+  if(name==='s-dash'){loadSuperStats();loadSuperEmpresas();}
+}
+
+// ── BRANDING EMPRESA (admin da empresa) ──────────────
+async function loadEmpresaBrandingUI(){
+  const empId=profile.empresa_id;if(!empId)return;
+  const{data}=await db.from('empresas').select('*').eq('id',empId).single();
+  if(!data)return;
+  empresa={...empresa,...data};
+  const ni=g('emp-nome-input');if(ni)ni.value=data.nome||'';
+  const lu=g('emp-logo-url');if(lu)lu.value=data.logo_url||'';
+  const c1=g('emp-cor1');if(c1)c1.value=data.cor_primaria||'#FF385C';
+  const c1h=g('emp-cor1-hex');if(c1h)c1h.value=data.cor_primaria||'#FF385C';
+  const c2=g('emp-cor2');if(c2)c2.value=data.cor_secundaria||'#D93025';
+  const c2h=g('emp-cor2-hex');if(c2h)c2h.value=data.cor_secundaria||'#D93025';
+  previewEmpLogo();
+  txt('emp-nome-preview',data.nome||'--');
+}
+function previewEmpLogo(){
+  const url=v('emp-logo-url');const prev=g('emp-logo-preview');if(!prev)return;
+  if(url){prev.innerHTML=`<img src="${url}" style="width:100%;height:100%;object-fit:cover;border-radius:12px">`;}
+  else{prev.textContent='🏢';}
+}
+function previewEmpCores(){
+  const cor1=v('emp-cor1')||v('emp-cor1-hex');
+  const cor2=v('emp-cor2')||v('emp-cor2-hex');
+  if(cor1&&cor1.startsWith('#'))applyEmpresaBranding({cor_primaria:cor1,cor_secundaria:cor2,nome:v('emp-nome-input')||empresa.nome});
+}
+function syncColorPicker(pickerId,hexId){
+  const hex=g(hexId)?.value;const picker=g(pickerId);
+  if(hex&&/^#[0-9A-Fa-f]{6}$/.test(hex)&&picker){picker.value=hex;previewEmpCores();}
+}
+function uploadEmpLogo(input){
+  const f=input.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=e=>{const url=e.target.result;const lu=g('emp-logo-url');if(lu)lu.value=url;previewEmpLogo();};
+  r.readAsDataURL(f);
+}
+async function salvarEmpresaBranding(){
+  const empId=profile.empresa_id;if(!empId)return toast('Empresa não vinculada','err');
+  const nome=v('emp-nome-input').trim();
+  const logo=v('emp-logo-url').trim()||null;
+  const cor1=v('emp-cor1-hex')||v('emp-cor1');
+  const cor2=v('emp-cor2-hex')||v('emp-cor2');
+  if(!nome)return toast('Digite o nome da empresa','err');
+  if(cor1&&!/^#[0-9A-Fa-f]{6}$/.test(cor1))return toast('Cor primária inválida (use #RRGGBB)','err');
+  if(cor2&&!/^#[0-9A-Fa-f]{6}$/.test(cor2))return toast('Cor secundária inválida (use #RRGGBB)','err');
+  const{error}=await db.from('empresas').update({nome,logo_url:logo,cor_primaria:cor1,cor_secundaria:cor2}).eq('id',empId);
+  if(error)return toast('Erro ao salvar','err');
+  empresa={...empresa,nome,logo_url:logo,cor_primaria:cor1,cor_secundaria:cor2};
+  applyEmpresaBranding(empresa);
+  txt('emp-nome-preview',nome);
+  toast('Identidade visual salva! 🎨','ok');
+}
+
+// ── SLUG PREVIEW (nova empresa) ──────────────────────
+document.addEventListener('input',e=>{
+  if(e.target.id==='ne-slug'){txt('ne-slug-preview',e.target.value||'--');}
+  if(e.target.id==='ne-cor1'){const h=g('ne-cor1h');if(h)h.value=e.target.value;}
+  if(e.target.id==='ne-cor2'){const h=g('ne-cor2h');if(h)h.value=e.target.value;}
+  if(e.target.id==='emp-cor1'){const h=g('emp-cor1-hex');if(h)h.value=e.target.value;previewEmpCores();}
+  if(e.target.id==='emp-cor2'){const h=g('emp-cor2-hex');if(h)h.value=e.target.value;previewEmpCores();}
+});
+
 // ── SW / UPDATE ────────────────────────────────────
-const APP_VERSION='2.1.0';
+const APP_VERSION='3.0.0';
 function syncVersion(){
   document.querySelectorAll('.app-ver').forEach(el=>el.textContent=APP_VERSION);
   const us=g('update-status');if(us&&!us.textContent.includes('✅'))us.textContent='Versão '+APP_VERSION;
