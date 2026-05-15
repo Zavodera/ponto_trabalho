@@ -2557,7 +2557,7 @@ async function uploadEmpLogo(input){
       previewEmpLogo();return;
     }
     /* silent */ //console.warn('[Logo] Storage falhou:',upErr.message);*/
-  }catch(e){/* silent */ //console.warn('[Logo] Erro:',e);*/}
+  }catch(e){/* silent */}
   // Fallback Base64
   const r=new FileReader();
   r.onload=e=>{
