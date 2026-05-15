@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -20,6 +20,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
+/* Tokens base — SEMPRE claro por padrão, ignora tema do sistema */
 :root {
   --red:#FF385C; --red-light:#FF6B81; --red-pale:#FFF0F2; --red-dark:#D93025;
   --text-1:#222222; --text-2:#717171; --text-3:#AAAAAA;
@@ -33,13 +34,26 @@
   --tab-h:72px; --hdr-h:56px;
   --font:'Plus Jakarta Sans',sans-serif; --mono:'DM Mono',monospace;
 }
-[data-theme="dark"] {
+/* Somente quando o usuário ativar explicitamente dentro do app */
+html[data-theme="dark"] {
   --text-1:#F5F5F5; --text-2:#A0A0A0; --text-3:#666666;
   --bg:#111111; --bg-s:#1A1A1A; --bg-card:#1E1E1E; --bg-in:#2A2A2A;
   --border:#333333; --border-m:#2A2A2A;
-  --ok-bg:#0A2E0B; --warn-bg:#2E1F00; --err-bg:#2E0E06; --info-bg:#001F3D;
+  --ok:#34C759; --ok-bg:#0A2E0B; --warn:#FFB74D; --warn-bg:#2E1F00;
+  --err:#FF6B6B; --err-bg:#2E0E06; --info:#5BA4F5; --info-bg:#001F3D;
   --red-pale:#2A0A10;
   --sh-sm:0 1px 4px rgba(0,0,0,.3); --sh-md:0 4px 16px rgba(0,0,0,.4);
+}
+/* Bloqueia sistema escuro de sobrescrever quando tema claro está ativo */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="dark"]) {
+    --text-1:#222222; --text-2:#717171; --text-3:#AAAAAA;
+    --bg:#FFFFFF; --bg-s:#F7F7F7; --bg-card:#FFFFFF; --bg-in:#F7F7F7;
+    --border:#DDDDDD; --border-m:#EBEBEB;
+    --ok:#008A05; --ok-bg:#EDFFF0; --warn:#C87000; --warn-bg:#FFF8E7;
+    --err:#C13515; --err-bg:#FFF1EE; --info:#0068B7; --info-bg:#EDF4FF;
+    --red-pale:#FFF0F2;
+  }
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);font-family:var(--font);font-size:15px;-webkit-font-smoothing:antialiased}
@@ -141,18 +155,16 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
 .tl-time.pred{color:var(--ok);font-weight:600}
 
 /* WEEK CHART */
-.week-wrap{display:flex;align-items:flex-end;gap:8px;height:80px;margin:.5rem 0 .25rem}
-.week-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px}
-.wbar{width:100%;border-radius:5px 5px 0 0;background:var(--bg-s);border:1.5px solid var(--border-m);transition:height .5s cubic-bezier(.34,1.56,.64,1);min-height:5px}
-.wbar.ok{background:#FFE4E8;border-color:var(--red-light)}
-.wbar.full{background:#E8F5E9;border-color:#81C784}
-.wbar.low{background:#FFF8E1;border-color:#FFB74D}
-.wbar.td{border-width:2px}
-.wlbl{font-size:10px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em}
-.wlbl.td{color:var(--red)}
-.wlegend{display:flex;gap:12px;margin-top:.5rem}
-.wleg-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text-2)}
-.wleg-box{width:10px;height:10px;border-radius:2px;border:1.5px solid}
+.week-wrap{display:flex;align-items:flex-end;gap:6px;height:90px;padding-bottom:0}
+.week-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:0}
+.whrs{font-size:9px;font-weight:700;font-family:var(--mono);color:var(--text-2);min-height:13px;margin-bottom:3px;text-align:center}
+.wbar{width:100%;border-radius:5px 5px 0 0;background:var(--bg-s);border:1.5px solid var(--border-m);transition:height .5s cubic-bezier(.34,1.56,.64,1);min-height:4px}
+.wbar.ok  {background:#FFE4E8;border-color:var(--red-light)}
+.wbar.full{background:#DCFCE7;border-color:#6BCB87}
+.wbar.low {background:#FEF9C3;border-color:#E5B800}
+.wbar.td  {border-width:2.5px}
+.wday{font-size:10px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.03em;margin-top:4px}
+.wday.td{color:var(--red)}
 
 /* PONTO */
 .clk-hero{background:var(--bg-card);border:1px solid var(--border-m);border-radius:var(--r-xl);padding:2rem 1.5rem 1.75rem;text-align:center;margin-bottom:1rem;box-shadow:var(--sh-sm)}
@@ -363,11 +375,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       <div class="card">
         <div class="card-lbl">Semana atual</div>
         <div class="week-wrap" id="week-chart"></div>
-        <div class="wlegend">
-          <div class="wleg-item"><div class="wleg-box" style="background:#E8F5E9;border-color:#81C784"></div>Meta batida</div>
-          <div class="wleg-item"><div class="wleg-box" style="background:#FFE4E8;border-color:#FF6B81"></div>Em andamento</div>
-          <div class="wleg-item"><div class="wleg-box" style="background:#FFF8E1;border-color:#FFB74D"></div>Incompleto</div>
-        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:2px;padding-top:4px;border-top:1px solid var(--border-m)" id="week-days"></div>
       </div>
     </div>
 
@@ -527,7 +535,7 @@ const DSHORT=['Dom','Seg','Ter','Qua','Qui','Sex','Sab'];
 const MONTHS=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
 
 window.addEventListener('load',async()=>{
-  applyTheme(localStorage.getItem('ponto-theme')||'light');
+  applyTheme(localStorage.getItem('ponto-theme')||'light'); // sempre claro por padrão
   const{data:{session}}=await db.auth.getSession();
   if(session){CU=session.user;await boot();}
   else{hide('ld');show('auth','flex');}
@@ -542,7 +550,12 @@ async function boot(){
 }
 
 /* THEME */
-function applyTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('ponto-theme',t);const el=document.getElementById('cfg-dark');if(el)el.checked=t==='dark';}
+function applyTheme(t){
+  t=(t==='dark')?'dark':'light';
+  document.documentElement.setAttribute('data-theme',t);
+  localStorage.setItem('ponto-theme',t);
+  const el=document.getElementById('cfg-dark');if(el)el.checked=(t==='dark');
+}
 function toggleDark(){applyTheme(document.getElementById('cfg-dark').checked?'dark':'light');}
 
 /* AUTH */
@@ -636,27 +649,38 @@ async function doPunch(){
   await Promise.all([renderHist(),renderWeek()]);
 }
 
+/* Converte "HH:MM" para minutos desde meia-noite.
+   Se saida < entrada, assume que passou da meia-noite (+24h). */
+function tm(t){const[h,m]=t.split(':').map(Number);return h*60+m;}
+function diffMin(entrada,saida){
+  let d=tm(saida)-tm(entrada);
+  if(d<0)d+=1440; // virou o dia — adiciona 24h
+  return d;
+}
+
 function calcMin(r){
   if(!r.entrada||!r.saida)return 0;
-  const tm=t=>{const[h,m]=t.split(':').map(Number);return h*60+m;};
-  let tot=tm(r.saida)-tm(r.entrada);
-  if(r.saida_almoco&&r.retorno_almoco)tot-=tm(r.retorno_almoco)-tm(r.saida_almoco);
+  let tot=diffMin(r.entrada,r.saida);
+  if(r.saida_almoco&&r.retorno_almoco){
+    let al=diffMin(r.saida_almoco,r.retorno_almoco);
+    tot-=al;
+  }
   return Math.max(0,tot);
 }
 function liveMin(r){
   if(!r||!r.entrada)return 0;
-  const tm=t=>{const[h,m]=t.split(':').map(Number);return h*60+m;};
-  const now=new Date();const nm=now.getHours()*60+now.getMinutes();
-  let tot=nm-tm(r.entrada);
-  if(r.saida_almoco&&!r.retorno_almoco)tot-=nm-tm(r.saida_almoco);
-  if(r.saida_almoco&&r.retorno_almoco)tot-=tm(r.retorno_almoco)-tm(r.saida_almoco);
+  const now=new Date();
+  const ns=`${pad(now.getHours())}:${pad(now.getMinutes())}`;
+  let tot=diffMin(r.entrada,ns);
+  if(r.saida_almoco&&!r.retorno_almoco)tot-=diffMin(r.saida_almoco,ns);
+  if(r.saida_almoco&&r.retorno_almoco)tot-=diffMin(r.saida_almoco,r.retorno_almoco);
   return Math.max(0,tot);
 }
 function calcPrev(r){
   if(!r||!r.entrada)return null;
-  const tm=t=>{const[h,m]=t.split(':').map(Number);return h*60+m;};
-  const m=tm(r.entrada)+cfg.hd*60+cfg.al;
-  return`${pad(Math.floor(m/60))}:${pad(m%60)}`;
+  // Minutos totais desde meia-noite de entrada + jornada + almoço
+  const totalMin=(tm(r.entrada)+cfg.hd*60+cfg.al)%1440; // % 1440 = volta ao dia seguinte corretamente
+  return`${pad(Math.floor(totalMin/60))}:${pad(totalMin%60)}`;
 }
 function nextStep(r){r=r||{};if(r.saida)return 4;if(r.retorno_almoco)return 3;if(r.saida_almoco)return 2;if(r.entrada)return 1;return 0;}
 
@@ -718,17 +742,28 @@ async function renderHist(){
 /* WEEK CHART */
 async function renderWeek(){
   const now=new Date(),dow=now.getDay(),off=dow===0?-6:1-dow,target=cfg.hd*60;
-  let weekTot=0,html='';
+  let weekTot=0,bars='',days='';
   for(let i=0;i<7;i++){
     const d=new Date(now);d.setDate(now.getDate()+off+i);
     const ds=d.toISOString().slice(0,10),isT=ds===todayKey(),isFut=d>now&&!isT;
     let min=0;
-    if(!isFut){const{data}=await db.from('registros').select('total_minutos,entrada,saida').eq('user_id',CU.id).eq('data',ds).single();if(data){min=data.total_minutos||(data.entrada&&!data.saida?liveMin(data):0);weekTot+=data.total_minutos||0;}}
+    if(!isFut){
+      const{data}=await db.from('registros').select('total_minutos,entrada,saida').eq('user_id',CU.id).eq('data',ds).single();
+      if(data){min=data.total_minutos||(data.entrada&&!data.saida?liveMin(data):0);weekTot+=data.total_minutos||0;}
+    }
     const pct=Math.min(100,(min/target)*100);
     const cls=min===0?'':((!rec?.saida&&isT)?'ok':min>=target?'full':'low');
-    html+=`<div class="week-col"><div class="wbar ${cls} ${isT?'td':''}" style="height:${Math.max(5,pct*.72)}px"></div><div class="wlbl ${isT?'td':''}">${DSHORT[d.getDay()]}</div></div>`;
+    const hrLabel=min>0?mhm(min):'';
+    const barH=Math.max(4,Math.round(pct*0.68));
+    bars+=`<div class="week-col">
+      <div class="whrs">${hrLabel}</div>
+      <div class="wbar ${cls}${isT?' td':''}" style="height:${barH}px"></div>
+    </div>`;
+    days+=`<div style="flex:1;text-align:center;font-size:10px;font-weight:700;color:${isT?'var(--red)':'var(--text-3)'};text-transform:uppercase;letter-spacing:.03em">${DSHORT[d.getDay()]}</div>`;
   }
-  g('week-chart').innerHTML=html;txt('s-sem',mhm(weekTot));
+  g('week-chart').innerHTML=bars;
+  const wd=g('week-days');if(wd)wd.innerHTML=days;
+  txt('s-sem',mhm(weekTot));
 }
 
 /* NOTIF */
