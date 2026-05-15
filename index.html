@@ -288,15 +288,51 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
 /* UPDATE BANNER */
 .upd-banner{
   position:fixed;top:0;left:0;right:0;z-index:9998;
-  background:var(--ok);color:#fff;
+  background:#FF385C;color:#fff;
   display:flex;align-items:center;justify-content:space-between;
-  padding:.75rem 1.25rem;font-size:14px;font-weight:600;
-  transform:translateY(-100%);transition:transform .35s cubic-bezier(.34,1.56,.64,1);
-  box-shadow:0 4px 16px rgba(0,138,5,.35);
+  padding:.85rem 1.25rem;font-size:14px;font-weight:700;
+  transform:translateY(-100%);transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+  box-shadow:0 4px 20px rgba(255,56,92,.5);
+  gap:12px;
 }
 .upd-banner.show{transform:translateY(0)}
-.upd-btn{background:rgba(255,255,255,.22);border:none;border-radius:20px;color:#fff;font-family:var(--font);font-size:13px;font-weight:700;padding:5px 14px;cursor:pointer;transition:background .2s}
-.upd-btn:hover{background:rgba(255,255,255,.35)}
+
+/* FEEDBACK */
+.fb-type-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:1rem}
+.fb-type-btn{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:6px;padding:.85rem .5rem;border-radius:var(--r-md);
+  border:1.5px solid var(--border-m);background:var(--bg-card);
+  cursor:pointer;transition:all .2s;font-family:var(--font);
+}
+.fb-type-btn .fb-ico{font-size:22px}
+.fb-type-btn .fb-lbl{font-size:12px;font-weight:700;color:var(--text-2)}
+.fb-type-btn.selected{border-color:var(--red);background:var(--red-pale)}
+.fb-type-btn.selected .fb-lbl{color:var(--red)}
+.fb-textarea{
+  width:100%;min-height:120px;background:var(--bg-in);
+  border:1.5px solid var(--border);border-radius:var(--r-sm);
+  padding:.85rem 1rem;color:var(--text-1);font-family:var(--font);
+  font-size:14px;resize:none;outline:none;transition:border .18s;
+  line-height:1.6;
+}
+.fb-textarea:focus{border-color:var(--red);background:var(--bg-card)}
+.fb-textarea::placeholder{color:var(--text-3)}
+.fb-char{font-size:11px;color:var(--text-3);text-align:right;margin-top:4px;font-family:var(--mono)}
+.fb-sent{
+  display:none;flex-direction:column;align-items:center;
+  justify-content:center;padding:3rem 1rem;text-align:center;
+}
+.fb-sent-ico{font-size:52px;margin-bottom:1rem}
+.fb-sent-title{font-size:20px;font-weight:800;margin-bottom:.5rem}
+.fb-sent-sub{font-size:14px;color:var(--text-2);line-height:1.6}
+.upd-btn{
+  background:#fff;border:none;border-radius:20px;
+  color:#FF385C;font-family:var(--font);font-size:13px;font-weight:800;
+  padding:6px 16px;cursor:pointer;flex-shrink:0;
+  transition:opacity .2s;
+}
+.upd-btn:hover{opacity:.85}
 </style>
 </head>
 <body>
@@ -456,6 +492,38 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
         <button class="btn-exp" onclick="exportPDF()"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>Gerar PDF (imprimir)</button>
       </div>
 
+      <div class="sg-title">Suporte</div>
+      <div class="slist">
+        <div class="srow" onclick="nav('feedback',4)" style="cursor:pointer">
+          <div class="srow-ico" style="background:#FFF0F2">💬</div>
+          <div class="srow-info">
+            <div class="srow-lbl">Enviar feedback</div>
+            <div class="srow-sub">Sugestões, bugs ou elogios</div>
+          </div>
+          <svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+
+      <div class="sg-title">Atualização do app</div>
+      <div class="slist">
+        <div class="srow" onclick="manualUpdate()" style="cursor:pointer">
+          <div class="srow-ico" style="background:var(--red-pale)">🔄</div>
+          <div class="srow-info">
+            <div class="srow-lbl">Verificar atualização</div>
+            <div class="srow-sub" id="update-status">Versão v1.1.0 — toque para verificar</div>
+          </div>
+          <svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+        <div class="srow" onclick="forceReload()" style="cursor:pointer">
+          <div class="srow-ico" style="background:var(--info-bg)">⚡</div>
+          <div class="srow-info">
+            <div class="srow-lbl">Forçar recarregamento</div>
+            <div class="srow-sub">Limpa cache e recarrega o app</div>
+          </div>
+          <svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+
       <div class="sg-title">Dados</div>
       <div class="slist">
         <div class="srow" onclick="confirmDeleteAll()" style="cursor:pointer">
@@ -465,6 +533,59 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
         </div>
       </div>
       <div style="height:1rem"></div>
+    </div>
+
+    <!-- FEEDBACK -->
+    <div class="page" id="pg-feedback">
+      <div style="font-size:24px;font-weight:800;letter-spacing:-.5px;margin-bottom:.25rem">Feedback</div>
+      <div style="font-size:14px;color:var(--text-2);margin-bottom:1.5rem">Sua opinião ajuda a melhorar o app</div>
+
+      <div id="fb-form-wrap">
+        <div class="card">
+          <div class="card-lbl">Tipo de feedback</div>
+          <div class="fb-type-grid">
+            <button class="fb-type-btn selected" onclick="selFbType(this,'sugestao')" data-type="sugestao">
+              <span class="fb-ico">💡</span>
+              <span class="fb-lbl">Sugestão</span>
+            </button>
+            <button class="fb-type-btn" onclick="selFbType(this,'bug')" data-type="bug">
+              <span class="fb-ico">🐛</span>
+              <span class="fb-lbl">Bug</span>
+            </button>
+            <button class="fb-type-btn" onclick="selFbType(this,'elogio')" data-type="elogio">
+              <span class="fb-ico">❤️</span>
+              <span class="fb-lbl">Elogio</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-lbl">Sua mensagem</div>
+          <textarea class="fb-textarea" id="fb-text" placeholder="Descreva sua sugestão, problema ou elogio..." maxlength="500" oninput="updateChar()"></textarea>
+          <div class="fb-char"><span id="fb-char-count">0</span>/500</div>
+        </div>
+
+        <div class="card" style="background:var(--red-pale);border-color:rgba(255,56,92,.2)">
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <div style="font-size:22px;flex-shrink:0">👤</div>
+            <div>
+              <div style="font-size:13px;font-weight:700;color:var(--red);margin-bottom:3px">Enviado de forma anônima</div>
+              <div style="font-size:12px;color:var(--text-2);line-height:1.5">Seu nome de usuário será incluído automaticamente para que possamos responder se necessário.</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-save" onclick="sendFeedback()" id="fb-send-btn">
+          Enviar feedback
+        </button>
+      </div>
+
+      <div class="fb-sent" id="fb-sent-wrap">
+        <div class="fb-sent-ico">🎉</div>
+        <div class="fb-sent-title">Feedback enviado!</div>
+        <div class="fb-sent-sub">Obrigado pela sua mensagem.<br>Paulo Santos agradece e irá analisar sua sugestão.</div>
+        <button class="btn-save" style="margin-top:1.5rem;max-width:220px" onclick="resetFeedback()">Enviar outro</button>
+      </div>
     </div>
 
     <!-- CONTA -->
@@ -818,10 +939,14 @@ function nav(name,idx){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
   g('pg-'+name).classList.add('on');
-  document.querySelectorAll('.tab')[idx].classList.add('on');
+  // feedback page doesn't have its own tab — highlight config tab
+  const tabIdx = name==='feedback' ? 2 : idx;
+  const tabs = document.querySelectorAll('.tab');
+  if(tabs[tabIdx]) tabs[tabIdx].classList.add('on');
   if(name==='home'){renderHome();renderWeek();}
   if(name==='ponto'){renderSteps();renderHist();}
   if(name==='config'){applyTheme(localStorage.getItem('ponto-theme')||'light');}
+  if(name==='feedback'){resetFeedback(true);}
 }
 
 /* UTILS */
@@ -839,33 +964,214 @@ function showModal(title,body,onOk,danger=false){
   g('m-ov').classList.add('on');
 }
 function closeModal(){g('m-ov').classList.remove('on');}
+
+/* FEEDBACK */
+const TG_TOKEN='8912655967:AAGEWhIhTPVxOwgpb6JSNFohFZuM8PgZXjI';
+const TG_CHAT='6606573444';
+let fbType='sugestao';
+
+function selFbType(el,type){
+  document.querySelectorAll('.fb-type-btn').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected');
+  fbType=type;
+}
+
+function updateChar(){
+  const len=(g('fb-text')?.value||'').length;
+  txt('fb-char-count',len);
+}
+
+function resetFeedback(keepForm){
+  if(!keepForm){
+    const ta=g('fb-text');if(ta)ta.value='';
+    txt('fb-char-count','0');
+    fbType='sugestao';
+    document.querySelectorAll('.fb-type-btn').forEach((b,i)=>b.classList.toggle('selected',i===0));
+  }
+  const fw=g('fb-form-wrap'),sw=g('fb-sent-wrap');
+  if(fw)fw.style.display='block';
+  if(sw)sw.style.display='none';
+}
+
+async function sendFeedback(){
+  const msg=(g('fb-text')?.value||'').trim();
+  if(!msg)return toast('Escreva sua mensagem antes de enviar','err');
+
+  const btn=g('fb-send-btn');
+  btn.textContent='Enviando...';btn.disabled=true;
+
+  const tipos={'sugestao':'💡 Sugestão','bug':'🐛 Bug','elogio':'❤️ Elogio'};
+  const nome=profile.nome||CU?.email||'Usuário anônimo';
+  const regime=profile.regime||'5x2';
+  const dataHora=new Date().toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'});
+
+  const texto=`📋 *Novo Feedback — Ponto de Trabalho*
+
+`+
+    `*Tipo:* ${tipos[fbType]||fbType}
+`+
+    `*De:* ${nome} (${regime})
+`+
+    `*Data:* ${dataHora}
+
+`+
+    `*Mensagem:*
+${msg}`;
+
+  try{
+    const res=await fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        chat_id:TG_CHAT,
+        text:texto,
+        parse_mode:'Markdown'
+      })
+    });
+    const data=await res.json();
+    if(data.ok){
+      // Sucesso — mostra tela de confirmação
+      const fw=g('fb-form-wrap'),sw=g('fb-sent-wrap');
+      if(fw)fw.style.display='none';
+      if(sw)sw.style.display='flex';
+      const ta=g('fb-text');if(ta)ta.value='';
+      txt('fb-char-count','0');
+    } else {
+      throw new Error(data.description||'Erro desconhecido');
+    }
+  }catch(e){
+    toast('Erro ao enviar. Verifique sua conexão.','err');
+    console.error('[Feedback]',e);
+  }finally{
+    btn.textContent='Enviar feedback';btn.disabled=false;
+  }
+}
+
+/* ATUALIZAÇÃO MANUAL */
+function manualUpdate(){
+  const st=g('update-status');
+  if(st)st.textContent='Verificando...';
+  if('serviceWorker'in navigator){
+    navigator.serviceWorker.getRegistration('./sw.js').then(reg=>{
+      if(!reg){
+        if(st)st.textContent='Nenhum service worker encontrado';
+        return;
+      }
+      if(reg.waiting){
+        // Já tem versão nova esperando — aplica agora
+        newWorker=reg.waiting;
+        if(st)st.textContent='Nova versão encontrada! Atualizando...';
+        setTimeout(()=>applyUpdate(),800);
+        return;
+      }
+      reg.update().then(()=>{
+        if(reg.waiting){
+          newWorker=reg.waiting;
+          if(st)st.textContent='Nova versão encontrada! Atualizando...';
+          setTimeout(()=>applyUpdate(),800);
+        } else {
+          if(st)st.textContent='✅ Você já está na versão mais recente!';
+          setTimeout(()=>{if(st)st.textContent='Versão v1.1.0 — toque para verificar';},3000);
+        }
+      }).catch(()=>{
+        if(st)st.textContent='Sem conexão — tente novamente';
+        setTimeout(()=>{if(st)st.textContent='Versão v1.1.0 — toque para verificar';},3000);
+      });
+    });
+  } else {
+    window.location.reload(true);
+  }
+}
+
+function forceReload(){
+  showModal('Forçar recarregamento','O cache do app será limpo e a página recarregada. Isso garante que você está usando a versão mais recente.',()=>{
+    if('caches'in window){
+      caches.keys().then(keys=>Promise.all(keys.map(k=>caches.delete(k)))).then(()=>{
+        if('serviceWorker'in navigator){
+          navigator.serviceWorker.getRegistrations().then(regs=>Promise.all(regs.map(r=>r.unregister()))).then(()=>window.location.reload(true));
+        } else {
+          window.location.reload(true);
+        }
+      });
+    } else {
+      window.location.reload(true);
+    }
+  },false);
+}
 </script>
 
 <!-- UPDATE BANNER -->
 <div class="upd-banner" id="upd-banner">
-  🎉 Nova versão disponível!
-  <button class="upd-btn" onclick="applyUpdate()">Atualizar agora</button>
+  <div>
+    <div>🎉 Nova versão disponível!</div>
+    <div style="font-size:11px;font-weight:500;opacity:.85;margin-top:2px">Toque para atualizar o app</div>
+  </div>
+  <button class="upd-btn" onclick="applyUpdate()">Atualizar</button>
 </div>
 
 <script>
 let newWorker=null;
+
+function showUpdateBanner(){
+  document.getElementById('upd-banner').classList.add('show');
+}
+
+function applyUpdate(){
+  if(newWorker){
+    newWorker.postMessage('SKIP_WAITING');
+  } else {
+    // Limpa todos os caches e recarrega forçado
+    if('caches'in window){
+      caches.keys().then(keys=>Promise.all(keys.map(k=>caches.delete(k)))).then(()=>window.location.reload(true));
+    } else {
+      window.location.reload(true);
+    }
+  }
+}
+
 if('serviceWorker'in navigator){
+  // Registra o SW
   navigator.serviceWorker.register('./sw.js').then(reg=>{
-    reg.update();
+
+    // 1. Força verificação imediata de atualização
+    reg.update().catch(()=>{});
+
+    // 2. Verifica se já há um SW esperando (caso o usuário reabriu o app)
+    if(reg.waiting){
+      newWorker=reg.waiting;
+      showUpdateBanner();
+    }
+
+    // 3. Detecta novo SW sendo instalado
     reg.addEventListener('updatefound',()=>{
       newWorker=reg.installing;
       newWorker.addEventListener('statechange',()=>{
-        if(newWorker.state==='installed'&&navigator.serviceWorker.controller){
-          document.getElementById('upd-banner').classList.add('show');
+        if(newWorker.state==='installed'){
+          if(navigator.serviceWorker.controller){
+            // Há um SW antigo — mostra banner
+            showUpdateBanner();
+          } else {
+            // Primeira instalação — recarrega silenciosamente
+            window.location.reload();
+          }
         }
       });
     });
-  }).catch(e=>console.warn('[SW]',e));
-  navigator.serviceWorker.addEventListener('controllerchange',()=>window.location.reload());
-}
-function applyUpdate(){
-  if(newWorker)newWorker.postMessage('SKIP_WAITING');
-  else window.location.reload();
+
+  }).catch(e=>console.warn('[SW] Registro falhou:',e));
+
+  // 4. Quando o SW novo assumir controle, recarrega a página
+  let refreshing=false;
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{
+    if(!refreshing){ refreshing=true; window.location.reload(); }
+  });
+
+  // 5. Verifica atualização periodicamente (a cada 30 min)
+  setInterval(()=>{
+    navigator.serviceWorker.getRegistration().then(reg=>{
+      if(reg) reg.update().catch(()=>{});
+    });
+  }, 30*60*1000);
 }
 </script>
 </body>
