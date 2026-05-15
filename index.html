@@ -467,6 +467,7 @@ async function boot(){
   hide('ld');hide('auth');
   await loadProfile();
   const role=profile.role||'colaborador';
+  console.log('[Boot] Iniciando shell para role:',role);
   if(role==='admin'){
     show('shell-admin','flex');await bootAdmin();
   }else if(role==='gestor'){
@@ -523,8 +524,12 @@ function amsg(m,t){const el=g('a-msg');if(el){el.textContent=m;el.className='a-m
 
 // ── PROFILE ──────────────────────────────────────
 async function loadProfile(){
-  const{data}=await db.from('profiles').select('*').eq('user_id',CU.id).single();
+  const{data,error}=await db.from('profiles').select('*').eq('user_id',CU.id).single();
+  if(error&&error.code!=='PGRST116'){
+    console.error('[Profile] Erro ao carregar perfil:',error.message,error.code);
+  }
   profile=data||{user_id:CU.id,role:'colaborador'};
+  console.log('[Profile] role carregado:',profile.role,'| user_id:',CU.id);
 }
 function syncProfileUI(){
   const nome=profile.nome||CU?.email?.split('@')[0]||'Usuário';
