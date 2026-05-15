@@ -1,11 +1,11 @@
 // ─── SERVICE WORKER — PontiFy (github.io/pontify) ─────────
-const VERSION = 'v4.2.0';
+const VERSION = 'v4.2.1';
 const CACHE   = `pontify-${VERSION}`;
 
 const ASSETS = [
   './index.html',
   './manifest.json',
-  './abertura.json',
+  // './abertura.json', // Lottie desativado temporariamente
   'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap',
   'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2'
 ];
