@@ -2,7 +2,7 @@
   "name": "PontiFy",
   "short_name": "PontiFy",
   "description": "Controle sua jornada com precisão",
-  "start_url": "./index.html",
+  "start_url": "/pontify/index.html",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#FFFFFF",
@@ -22,6 +22,11 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["productivity", "utilities"],
-  "screenshots": []
+  "categories": [
+    "productivity",
+    "utilities"
+  ],
+  "screenshots": [],
+  "scope": "/pontify/",
+  "id": "/pontify/"
 }
