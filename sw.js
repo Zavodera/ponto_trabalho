@@ -1,7 +1,7 @@
 // ─── SERVICE WORKER — Ponto de Trabalho ───────────────────
 // Mude a versão aqui sempre que fizer uma atualização!
 // Isso garante que todos os usuários recebam a versão nova.
-const VERSION = 'v3.4.0';
+const VERSION = 'v3.5.0';
 const CACHE   = `pontify-${VERSION}`;
 
 // Arquivos que serão cacheados para funcionar offline
