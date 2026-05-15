@@ -1,7 +1,7 @@
 // ─── SERVICE WORKER — Ponto de Trabalho ───────────────────
 // Mude a versão aqui sempre que fizer uma atualização!
 // Isso garante que todos os usuários recebam a versão nova.
-const VERSION = 'v1.9.0';
+const VERSION = 'v2.0.0';
 const CACHE   = `ponto-${VERSION}`;
 
 // Arquivos que serão cacheados para funcionar offline
