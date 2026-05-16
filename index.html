@@ -239,6 +239,37 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
 .upd-btn{background:#fff;border:none;border-radius:20px;color:#FF385C;font-family:var(--font);font-size:13px;font-weight:800;padding:6px 16px;cursor:pointer;flex-shrink:0}
 ::-webkit-scrollbar{width:0}
 #av-file{display:none}
+
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#222;font-size:13px}
+  .header{background:${corPrimaria};padding:0;display:flex;align-items:stretch;min-height:80px}
+  .header-logo{background:#fff;padding:14px 24px;display:flex;align-items:center;min-width:200px}
+  .header-info{padding:16px 24px;display:flex;flex-direction:column;justify-content:center;gap:3px}
+  .header-title{font-size:18px;font-weight:700;color:#fff;letter-spacing:-.3px}
+  .header-sub{font-size:12px;color:rgba(255,255,255,.8)}
+  .body{padding:24px}
+  .meta-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:24px}
+  .meta-card{background:#f8f8f8;border-radius:8px;padding:12px 16px;border-left:3px solid ${corPrimaria}}
+  .meta-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#999;margin-bottom:3px}
+  .meta-val{font-size:18px;font-weight:800;color:#222;font-family:monospace}
+  .meta-val.ok{color:#008A05}
+  .meta-val.err{color:#C13515}
+  table{width:100%;border-collapse:collapse;font-size:12px}
+  thead tr{background:${corPrimaria}}
+  th{padding:10px 12px;text-align:left;color:#fff;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+  .footer{margin-top:24px;padding-top:16px;border-top:1px solid #eee;display:flex;justify-content:space-between;align-items:center}
+  .footer-left{font-size:11px;color:#aaa}
+  .footer-right{font-size:11px;color:#aaa;text-align:right}
+  @media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#222;font-size:13px}
+  .hdr{background:${corPrimaria};display:flex;align-items:stretch;min-height:72px}.hdr-logo{background:#fff;padding:12px 20px;display:flex;align-items:center;min-width:180px}
+  .hdr-info{padding:14px 20px;display:flex;flex-direction:column;justify-content:center;gap:2px}.hdr-t{font-size:17px;font-weight:700;color:#fff}.hdr-s{font-size:12px;color:rgba(255,255,255,.8)}
+  .body{padding:20px}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
+  .sc{background:#f8f8f8;border-radius:8px;padding:10px 14px;border-left:3px solid ${corPrimaria}}.sc-l{font-size:10px;font-weight:700;text-transform:uppercase;color:#999;margin-bottom:3px}.sc-v{font-size:18px;font-weight:800;font-family:monospace}
+  .footer{margin-top:20px;padding-top:14px;border-top:1px solid #eee;display:flex;justify-content:space-between;font-size:11px;color:#aaa}
+  @media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 </style>
 </head>
 <body>
@@ -331,7 +362,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       <div class="card"><div class="card-lbl">Registro de hoje</div><div class="tl-row"><div class="tl-dot" style="background:#FFF0F2">🟢</div><div class="tl-info"><div class="tl-name">Entrada</div><div class="tl-sub">Início da jornada</div></div><div class="tl-time" id="tl-e">--:--</div></div><div class="tl-row"><div class="tl-dot" style="background:#FFF8E1">🟡</div><div class="tl-info"><div class="tl-name">Saída p/ almoço</div><div class="tl-sub">Início do intervalo</div></div><div class="tl-time" id="tl-sa">--:--</div></div><div class="tl-row"><div class="tl-dot" style="background:#EDF4FF">🔵</div><div class="tl-info"><div class="tl-name">Retorno almoço</div><div class="tl-sub">Fim do intervalo</div></div><div class="tl-time" id="tl-ra">--:--</div></div><div class="tl-row"><div class="tl-dot" style="background:#FFF1EE">🔴</div><div class="tl-info"><div class="tl-name">Saída</div><div class="tl-sub">Fim da jornada</div></div><div class="tl-time" id="tl-s">--:--</div></div><div class="tl-row" style="border-bottom:none"><div class="tl-dot" style="background:#EDFFF0">🎯</div><div class="tl-info"><div class="tl-name">Saída prevista</div><div class="tl-sub">Baseada na carga horária</div></div><div class="tl-time pred" id="tl-prev">--:--</div></div></div>
       <div class="card"><div class="card-lbl">Semana atual</div><div class="week-wrap" id="week-chart"></div><div style="display:flex;justify-content:space-between;margin-top:2px;padding-top:4px;border-top:1px solid var(--border-m)" id="week-days"></div></div>
       <!-- Histórico movido para aba Meu Ponto -->
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <div class="page" id="pg-ponto">
       <div class="clk-hero"><div class="clk-big" id="clk">00:00:00</div><div class="clk-date" id="clk-date">--</div><div style="margin-top:1rem;font-size:13px;color:var(--text-2)" id="clk-st"></div></div>
@@ -339,7 +370,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       <button class="btn-punch" id="btn-punch" onclick="doPunch()">REGISTRAR PONTO</button>
       <div class="notif-card"><div style="font-size:22px">🔔</div><div style="flex:1"><div style="font-size:14px;font-weight:700">Lembrete de ponto</div><div style="font-size:12px;color:var(--text-2);margin-top:2px" id="notif-sub">Ativar avisos automáticos</div><div style="font-size:10px;color:var(--text-3);margin-top:3px">⚠️ Apenas com app aberto no navegador</div></div><label class="sw"><input type="checkbox" id="notif-tog" onchange="toggleNotif()"><div class="sw-track"></div><div class="sw-thumb"></div></label></div>
       <div class="card"><div class="card-lbl">Histórico de pontos</div><div id="hist-header"></div><div id="hist-list"></div></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <div class="page" id="pg-config">
       <div class="pg-title">Configurações</div><div class="pg-sub">Personalize o app</div>
@@ -354,10 +385,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       <div class="sg-title">Suporte</div>
       <div class="slist"><div class="srow" onclick="navColab('feedback',4)" style="cursor:pointer"><div class="srow-ico" style="background:var(--red-pale)">💬</div><div class="srow-info"><div class="srow-lbl">Enviar feedback</div><div class="srow-sub">Sugestões, bugs ou elogios</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div></div>
       <div class="sg-title">Atualização</div>
-      <div class="slist"><div class="srow" onclick="manualUpdate()" style="cursor:pointer"><div class="srow-ico" style="background:var(--red-pale)">🔄</div><div class="srow-info"><div class="srow-lbl">Verificar atualização</div><div class="srow-sub" id="update-status">Versão <span class="app-ver">5.0.0</span></div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div><div class="srow" onclick="forceReload()" style="cursor:pointer"><div class="srow-ico" style="background:var(--info-bg)">⚡</div><div class="srow-info"><div class="srow-lbl">Forçar recarregamento</div><div class="srow-sub">Limpa cache e recarrega</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div></div>
+      <div class="slist"><div class="srow" onclick="manualUpdate()" style="cursor:pointer"><div class="srow-ico" style="background:var(--red-pale)">🔄</div><div class="srow-info"><div class="srow-lbl">Verificar atualização</div><div class="srow-sub" id="update-status">Versão <span class="app-ver">5.0.1</span></div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div><div class="srow" onclick="forceReload()" style="cursor:pointer"><div class="srow-ico" style="background:var(--info-bg)">⚡</div><div class="srow-info"><div class="srow-lbl">Forçar recarregamento</div><div class="srow-sub">Limpa cache e recarrega</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div></div>
       <div class="sg-title">Dados</div>
       <div class="slist"><div class="srow" onclick="confirmDeleteAll()" style="cursor:pointer"><div class="srow-ico" style="background:var(--err-bg)">🗑️</div><div class="srow-info"><div class="srow-lbl" style="color:var(--err)">Apagar meus registros</div><div class="srow-sub">Ação irreversível</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <div class="page" id="pg-feedback">
       <div class="pg-title">Feedback</div><div class="pg-sub">Sua opinião melhora o app</div>
@@ -367,7 +398,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
         <button class="btn-red" onclick="sendFeedback()" id="fb-send-btn">Enviar feedback</button>
       </div>
       <div class="fb-sent" id="fb-sent-wrap"><div style="font-size:52px;margin-bottom:1rem">🎉</div><div style="font-size:20px;font-weight:800;margin-bottom:.5rem">Feedback enviado!</div><div style="font-size:14px;color:var(--text-2)">Paulo Santos irá analisar sua sugestão.</div><button class="btn-red" style="margin-top:1.5rem;max-width:200px" onclick="resetFeedback()">Enviar outro</button></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <div class="page" id="pg-conta">
       <div style="background:var(--bg-card);border:1px solid var(--border-m);border-radius:var(--r-xl);padding:1.75rem 1.25rem 1.25rem;text-align:center;margin-bottom:1rem;box-shadow:var(--sh-sm)">
@@ -386,7 +417,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       <button class="btn-red" onclick="saveProfile()" style="margin-bottom:.6rem">Salvar perfil</button>
       <button class="btn-out" onclick="doLogout()">Sair da conta</button>
       <div class="card" style="margin-top:1rem"><div class="card-lbl">Solicitações de ajuste de ponto</div><div id="minhas-solicitacoes"></div><button class="btn-ghost" onclick="openSolicitacao()" style="margin-top:.5rem">➕ Nova solicitação</button></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
   </div>
   <div class="tabs">
@@ -409,7 +440,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
         <div class="card-lbl">Banco de horas — mês atual</div>
         <div id="g-banco-list"><div style="font-size:13px;color:var(--text-3);text-align:center;padding:.5rem">Carregando...</div></div>
       </div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <div class="page" id="pg-g-hist">
       <div class="pg-title">Histórico</div><div class="pg-sub">Registros do setor</div>
@@ -423,12 +454,12 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
         <button class="btn-ghost" onclick="loadGestorHist()" style="margin-bottom:0">🔍 Filtrar período</button>
       </div>
       <div id="g-hist-list"></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <div class="page" id="pg-g-sol">
       <div class="pg-title">Solicitações</div><div class="pg-sub">Ajustes de ponto pendentes</div>
       <div id="g-sol-list"></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <div class="page" id="pg-g-perfil">
       <div class="pg-title">Meu perfil</div>
@@ -510,7 +541,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       </div><!-- /admin-brand-body -->
       </div>
       <button class="btn-out" onclick="doLogout()" style="margin-top:.5rem">Sair da conta</button>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
   </div>
   <div class="tabs">
@@ -534,7 +565,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       <div class="admin-stats"><div class="admin-stat"><div class="admin-stat-val" id="a-total-users">--</div><div class="admin-stat-lbl">Usuários</div></div><div class="admin-stat"><div class="admin-stat-val" id="a-total-setores">--</div><div class="admin-stat-lbl">Setores</div></div><div class="admin-stat"><div class="admin-stat-val" id="a-total-pendentes">--</div><div class="admin-stat-lbl">Pendentes</div></div></div>
       <div class="card"><div class="card-lbl">Ações rápidas</div><div class="slist"><div class="srow" onclick="navAdmin('a-users',1)" style="cursor:pointer"><div class="srow-ico" style="background:var(--red-pale)">👥</div><div class="srow-info"><div class="srow-lbl">Gerenciar usuários</div><div class="srow-sub">Promover, editar, excluir</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div><div class="srow" onclick="navAdmin('a-setores',3)" style="cursor:pointer"><div class="srow-ico" style="background:var(--info-bg)">🏢</div><div class="srow-info"><div class="srow-lbl">Gerenciar setores</div><div class="srow-sub">Criar e atribuir gestores</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div><div class="srow" onclick="navAdmin('a-sol',2)" style="cursor:pointer"><div class="srow-ico" style="background:var(--warn-bg)">📝</div><div class="srow-info"><div class="srow-lbl">Solicitações de ajuste</div><div class="srow-sub" id="a-pendentes-lbl">Ver todas</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div><div class="srow" onclick="navAdmin('a-pontos',4)" style="cursor:pointer"><div class="srow-ico" style="background:var(--ok-bg)">🕐</div><div class="srow-info"><div class="srow-lbl">Todos os pontos</div><div class="srow-sub">Visão global da empresa</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div></div></div>
       <button class="btn-out" onclick="doLogout()" style="margin-top:.5rem">Sair da conta</button>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <div class="page" id="pg-a-users">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><button onclick="navAdmin('a-dash',0)" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-2)">←</button><div class="pg-title" style="margin-bottom:0">Usuários</div></div>
@@ -543,18 +574,18 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
         <button onclick="toggleFiltroStatus()" id="btn-filtro-pendentes" style="padding:.6rem .9rem;background:var(--warn-bg);border:1.5px solid var(--warn);border-radius:var(--r-sm);color:var(--warn);font-family:var(--font);font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap" title="Ver pendentes">⏳ Pendentes</button>
       </div>
       <div class="slist" id="users-list"><div class="empty"><div class="empty-ico">👥</div><div class="empty-txt">Carregando...</div></div></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <div class="page" id="pg-a-sol">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><button onclick="navAdmin('a-dash',0)" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-2)">←</button><div class="pg-title" style="margin-bottom:0">Solicitações</div></div>
       <div id="a-sol-list"><div class="empty"><div class="empty-ico">📝</div><div class="empty-txt">Carregando...</div></div></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <div class="page" id="pg-a-setores">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><button onclick="navAdmin('a-dash',0)" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-2)">←</button><div class="pg-title" style="margin-bottom:0">Setores</div></div>
       <div class="card"><div class="card-lbl">Criar novo setor</div><div class="pf-f"><input type="text" id="novo-setor-nome" placeholder="Nome do setor (ex: Produção, TI...)"></div><button class="btn-red" onclick="criarSetor()">Criar setor</button></div>
       <div id="setores-list"></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <div class="page" id="pg-a-pontos">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><button onclick="navAdmin('a-dash',0)" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-2)">←</button><div class="pg-title" style="margin-bottom:0">Todos os pontos</div></div>
@@ -564,7 +595,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
         <button class="btn-ghost" onclick="exportRelatorioAdmin()" style="margin-bottom:0;border-color:var(--ok);color:var(--ok)">📄 Exportar relatório consolidado (PDF)</button>
       </div>
       <div id="a-pontos-list"></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
   </div>
   <div class="tabs">
@@ -599,7 +630,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
         <div class="card-lbl">Empresas cadastradas</div>
         <div id="s-emp-list"><div class="empty"><div class="empty-ico">🏢</div><div class="empty-txt">Carregando...</div></div></div>
       </div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <!-- NOVA EMPRESA -->
     <div class="page" id="pg-s-nova">
@@ -614,13 +645,13 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
         </div>
       </div>
       <button class="btn-red" style="background:#7C3AED;box-shadow:0 4px 16px rgba(124,58,237,.35)" onclick="criarEmpresa()">Criar empresa</button>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <!-- DETALHE EMPRESA -->
     <div class="page" id="pg-s-emp">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><button onclick="navSuper('s-dash',0)" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-2)">←</button><div class="pg-title" style="margin-bottom:0" id="s-emp-title">Empresa</div></div>
       <div id="s-emp-detail"></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
   </div>
   <div class="tabs">
@@ -1949,29 +1980,7 @@ async function exportPDF(){
 <html lang="pt-BR"><head>
 <meta charset="UTF-8">
 <title>Relatório de Ponto — ${nome}</title>
-<style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#222;font-size:13px}
-  .header{background:${corPrimaria};padding:0;display:flex;align-items:stretch;min-height:80px}
-  .header-logo{background:#fff;padding:14px 24px;display:flex;align-items:center;min-width:200px}
-  .header-info{padding:16px 24px;display:flex;flex-direction:column;justify-content:center;gap:3px}
-  .header-title{font-size:18px;font-weight:700;color:#fff;letter-spacing:-.3px}
-  .header-sub{font-size:12px;color:rgba(255,255,255,.8)}
-  .body{padding:24px}
-  .meta-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:24px}
-  .meta-card{background:#f8f8f8;border-radius:8px;padding:12px 16px;border-left:3px solid ${corPrimaria}}
-  .meta-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#999;margin-bottom:3px}
-  .meta-val{font-size:18px;font-weight:800;color:#222;font-family:monospace}
-  .meta-val.ok{color:#008A05}
-  .meta-val.err{color:#C13515}
-  table{width:100%;border-collapse:collapse;font-size:12px}
-  thead tr{background:${corPrimaria}}
-  th{padding:10px 12px;text-align:left;color:#fff;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.05em}
-  .footer{margin-top:24px;padding-top:16px;border-top:1px solid #eee;display:flex;justify-content:space-between;align-items:center}
-  .footer-left{font-size:11px;color:#aaa}
-  .footer-right{font-size:11px;color:#aaa;text-align:right}
-  @media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
-</style>
+
 </head>
 <body>
 <div class="header">
@@ -3190,13 +3199,7 @@ async function exportRelatorioAdmin(){
   const logoHtml=empLogo?`<img src="${empLogo}" style="height:64px;max-width:200px;object-fit:contain">`:`<span style="font-size:20px;font-weight:900;color:${corPrimaria}">${empNome}</span>`;
   const win=window.open('','_blank');
   win.document.write(`<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><title>Relatório — ${empNome}</title>
-  <style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#222;font-size:13px}
-  .hdr{background:${corPrimaria};display:flex;align-items:stretch;min-height:72px}.hdr-logo{background:#fff;padding:12px 20px;display:flex;align-items:center;min-width:180px}
-  .hdr-info{padding:14px 20px;display:flex;flex-direction:column;justify-content:center;gap:2px}.hdr-t{font-size:17px;font-weight:700;color:#fff}.hdr-s{font-size:12px;color:rgba(255,255,255,.8)}
-  .body{padding:20px}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
-  .sc{background:#f8f8f8;border-radius:8px;padding:10px 14px;border-left:3px solid ${corPrimaria}}.sc-l{font-size:10px;font-weight:700;text-transform:uppercase;color:#999;margin-bottom:3px}.sc-v{font-size:18px;font-weight:800;font-family:monospace}
-  .footer{margin-top:20px;padding-top:14px;border-top:1px solid #eee;display:flex;justify-content:space-between;font-size:11px;color:#aaa}
-  @media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style></head><body>
+  </head><body>
   <div class="hdr"><div class="hdr-logo">${logoHtml}</div><div class="hdr-info"><div class="hdr-t">Relatório Consolidado de Ponto</div><div class="hdr-s">${periodo} · ${users.length} colaboradores</div></div></div>
   <div class="body">
     <div class="summary">
@@ -3312,7 +3315,7 @@ async function editarPontoDireto(data,regId){
 }
 
 // ── SW / UPDATE ────────────────────────────────────
-const APP_VERSION='5.0.0';
+const APP_VERSION='5.0.1';
 function syncVersion(){
   document.querySelectorAll('.app-ver').forEach(el=>el.textContent=APP_VERSION);
   const us=g('update-status');if(us&&!us.textContent.includes('✅'))us.textContent='Versão '+APP_VERSION;
@@ -3345,7 +3348,7 @@ function forceReload(){
 </script>
 </body>
 </html>/* AUTH — card flutuante */
-#auth{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;background:var(--bg);position:relative;overflow:hidden}
+#auth{min-height:100vh;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;background:var(--bg);position:relative;overflow:hidden}
 #auth::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:var(--red);opacity:.06;pointer-events:none}
 #auth::after{content:'';position:absolute;bottom:-80px;left:-40px;width:240px;height:240px;border-radius:50%;background:var(--red);opacity:.04;pointer-events:none}
 .auth-card{background:var(--bg-card);border:1px solid var(--border-m);border-radius:var(--r-xl);padding:2rem 1.75rem;width:100%;max-width:400px;box-shadow:0 8px 40px rgba(0,0,0,.08);position:relative;z-index:1}
@@ -3390,232 +3393,7 @@ input[type=checkbox]{display:none}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<style>
-:root{color-scheme:light;--red:#FF385C;--red-light:#FF6B81;--red-pale:#FFF0F2;--red-dark:#D93025;--text-1:#222;--text-2:#717171;--text-3:#AAA;--bg:#FFF;--bg-s:#F7F7F7;--bg-card:#FFF;--bg-in:#F7F7F7;--border:#DDD;--border-m:#EBEBEB;--ok:#008A05;--ok-bg:#EDFFF0;--warn:#C87000;--warn-bg:#FFF8E7;--err:#C13515;--err-bg:#FFF1EE;--info:#0068B7;--info-bg:#EDF4FF;--purple:#7C3AED;--purple-bg:#F5F3FF;--r-sm:10px;--r-md:16px;--r-lg:20px;--r-xl:28px;--r-full:999px;--sh-sm:0 1px 4px rgba(0,0,0,.06),0 0 0 1px rgba(0,0,0,.04);--sh-md:0 4px 16px rgba(0,0,0,.10);--tab-h:72px;--hdr-h:56px;--font:'Plus Jakarta Sans',sans-serif;--mono:'DM Mono',monospace}
-html[data-theme="dark"]{color-scheme:dark;--text-1:#F5F5F5;--text-2:#A0A0A0;--text-3:#666;--bg:#111;--bg-s:#1A1A1A;--bg-card:#1E1E1E;--bg-in:#2A2A2A;--border:#333;--border-m:#2A2A2A;--ok:#34C759;--ok-bg:#0A2E0B;--warn:#FFB74D;--warn-bg:#2E1F00;--err:#FF6B6B;--err-bg:#2E0E06;--info:#5BA4F5;--info-bg:#001F3D;--purple-bg:#1E1535;--red-pale:#2A0A10;--sh-sm:0 1px 4px rgba(0,0,0,.3);--sh-md:0 4px 16px rgba(0,0,0,.4)}
-@media(prefers-color-scheme:dark){html:not([data-theme="dark"]){color-scheme:light!important;--text-1:#222!important;--text-2:#717171!important;--text-3:#AAA!important;--bg:#FFF!important;--bg-s:#F7F7F7!important;--bg-card:#FFF!important;--bg-in:#F7F7F7!important;--border:#DDD!important;--border-m:#EBEBEB!important;--ok:#008A05!important;--ok-bg:#EDFFF0!important;--warn:#C87000!important;--warn-bg:#FFF8E7!important;--err:#C13515!important;--err-bg:#FFF1EE!important;--info:#0068B7!important;--info-bg:#EDF4FF!important;--red-pale:#FFF0F2!important;--purple-bg:#F5F3FF!important}}
-*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);font-family:var(--font);font-size:15px;-webkit-font-smoothing:antialiased}
-/* LOADING */
-#ld{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:999;transition:opacity .4s ease}
-#ld.fade-out{opacity:0;pointer-events:none}
-.ld-logo{width:64px;height:64px;border-radius:18px;background:var(--red);display:flex;align-items:center;justify-content:center;margin-bottom:.5rem}
-.ld-logo svg{width:34px;height:34px;fill:#fff}
-.ld-bar{width:48px;height:3px;background:var(--border);border-radius:3px;overflow:hidden;margin-top:1.5rem}
-.ld-bar-i{height:100%;background:var(--red);border-radius:3px;animation:lb 1.4s ease-in-out infinite}
-@keyframes lb{0%{width:0;margin-left:0}50%{width:100%;margin-left:0}100%{width:0;margin-left:100%}}
-/* AUTH */
-#auth{display:none;flex-direction:column;min-height:100vh;background:var(--bg);overflow-y:auto}
-.a-hero{background:linear-gradient(160deg,#FF385C 0%,#FF7B7F 50%,#FF9A6C 100%);padding:3.5rem 1.5rem 2.5rem;text-align:center}
-.a-hero-ico{min-width:60px;min-height:60px;max-width:220px;border-radius:16px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;overflow:hidden;padding:.5rem}
-.a-hero-ico svg{width:30px;height:30px;fill:#fff}
-.a-hero h1{font-size:26px;font-weight:800;color:#fff;letter-spacing:-.5px}
-.a-hero p{font-size:14px;color:rgba(255,255,255,.82);margin-top:.5rem}
-.a-body{padding:1.75rem 1.25rem 2rem;flex:1}
-.a-tabs{display:flex;background:var(--bg-s);border-radius:var(--r-full);padding:4px;margin-bottom:1.75rem;border:1px solid var(--border-m)}
-.a-tab{flex:1;padding:.55rem;text-align:center;border-radius:var(--r-full);font-size:14px;font-weight:600;cursor:pointer;transition:all .22s;color:var(--text-2)}
-.a-tab.on{background:var(--bg-card);color:var(--red);box-shadow:var(--sh-sm)}
-.field{margin-bottom:1rem}
-.field label{font-size:12px;font-weight:600;color:var(--text-2);margin-bottom:.4rem;display:block;letter-spacing:.04em;text-transform:uppercase}
-.field input,.field select{width:100%;background:var(--bg-in);border:1.5px solid var(--border);border-radius:var(--r-sm);padding:.8rem 1rem;color:var(--text-1);font-family:var(--font);font-size:15px;outline:none;transition:border .18s}
-.field input:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(255,56,92,.1);background:var(--bg-card)}
-.field input::placeholder{color:var(--text-3)}
-.keep-row{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;cursor:pointer;user-select:none}
-.keep-row input[type=checkbox]{display:none}
-.keep-box{width:20px;height:20px;border-radius:6px;border:1.5px solid var(--border);background:var(--bg-in);display:flex;align-items:center;justify-content:center;transition:all .18s;flex-shrink:0}
-.keep-row input:checked~.keep-box{background:var(--red);border-color:var(--red)}
-.keep-row input:checked~.keep-box::after{content:'';display:block;width:10px;height:6px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) translateY(-1px)}
-.keep-lbl{font-size:14px;color:var(--text-2);font-weight:500}
-.btn-main{width:100%;padding:.9rem;background:var(--red);border:none;border-radius:var(--r-sm);color:#fff;font-family:var(--font);font-size:15px;font-weight:700;cursor:pointer;transition:all .2s}
-.btn-main:hover{background:var(--red-dark);transform:translateY(-1px)}
-.btn-main:disabled{opacity:.5;cursor:not-allowed;transform:none}
-.a-msg{font-size:13px;text-align:center;margin-top:.75rem;min-height:18px;font-weight:500}
-.a-msg.err{color:var(--err)}.a-msg.ok{color:var(--ok)}
-/* SHARED */
-.app-shell{display:none;flex-direction:column;height:100vh;background:var(--bg-s)}
-.hdr{height:var(--hdr-h);background:var(--bg-card);border-bottom:1px solid var(--border-m);display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;flex-shrink:0}
-.hdr-left{display:flex;align-items:center;gap:10px}
-.hdr-logo{min-width:44px;height:44px;background:var(--red);border-radius:12px;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;transition:background .3s}
-.hdr-logo svg{width:22px;height:22px;fill:#fff}
-.hdr-logo img{height:100%;max-width:110px;object-fit:contain}
-.hdr-brand{font-size:17px;font-weight:800;color:var(--text-1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:160px}
-.hdr-brand span{color:var(--red)}
-.hdr-emp-name{font-size:15px;font-weight:700;color:var(--text-1);display:flex;align-items:center;gap:0;max-width:230px;overflow:hidden}
-.hdr-right{display:flex;align-items:center;gap:8px}
-.hdr-time{font-family:var(--mono);font-size:13px;color:var(--text-2);background:var(--bg-s);padding:4px 10px;border-radius:var(--r-full);border:1px solid var(--border-m)}
-.role-badge{padding:3px 10px;border-radius:var(--r-full);font-size:11px;font-weight:700}
-.role-admin{background:#F5F3FF;color:#7C3AED}
-.role-gestor{background:var(--info-bg);color:var(--info)}
-.role-colaborador{background:var(--red-pale);color:var(--red)}
-.pages{flex:1;overflow:hidden;position:relative}
-.page{position:absolute;inset:0;overflow-y:auto;padding:1.25rem;display:none;padding-bottom:calc(var(--tab-h)+1rem)}
-.page.on{display:block}
-.tabs{height:var(--tab-h);background:var(--bg-card);border-top:1px solid var(--border-m);display:flex;align-items:stretch;flex-shrink:0;padding-bottom:env(safe-area-inset-bottom)}
-.tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;transition:all .18s;color:var(--text-3);font-size:10px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;position:relative}
-.tab.on{color:var(--red)}
-.tab.on::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:32px;height:3px;background:var(--red);border-radius:0 0 3px 3px}
-.tab svg{width:22px;height:22px}
-/* CARDS */
-.card{background:var(--bg-card);border:1px solid var(--border-m);border-radius:var(--r-lg);padding:1.25rem;margin-bottom:1rem;box-shadow:var(--sh-sm)}
-.card-lbl{font-size:11px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.9rem}
-.pg-title{font-size:24px;font-weight:800;letter-spacing:-.5px;margin-bottom:.25rem}
-.pg-sub{font-size:14px;color:var(--text-2);margin-bottom:1.5rem}
-.sg-title{font-size:11px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.08em;margin:1.5rem 0 .6rem;padding:0 .25rem}
-.sg-title:first-child{margin-top:0}
-.slist{background:var(--bg-card);border:1px solid var(--border-m);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-sm)}
-.srow{display:flex;align-items:center;gap:12px;padding:.9rem 1.1rem;border-bottom:1px solid var(--border-m);transition:background .15s}
-.srow:last-child{border-bottom:none}
-.srow-ico{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
-.srow-info{flex:1}
-.srow-lbl{font-size:14px;font-weight:600;color:var(--text-1)}
-.srow-sub{font-size:12px;color:var(--text-2);margin-top:1px}
-.sw{position:relative;width:48px;height:28px;flex-shrink:0;cursor:pointer}
-.sw input{opacity:0;width:0;height:0;position:absolute}
-.sw-track{position:absolute;inset:0;border-radius:28px;background:var(--border);transition:background .22s}
-.sw-thumb{position:absolute;width:20px;height:20px;border-radius:50%;background:#fff;top:4px;left:4px;transition:transform .22s;box-shadow:0 1px 4px rgba(0,0,0,.2)}
-.sw input:checked~.sw-track{background:var(--red)}
-.sw input:checked~.sw-thumb{transform:translateX(20px)}
-.ssel{background:var(--bg-s);border:1.5px solid var(--border);border-radius:var(--r-sm);color:var(--text-1);font-family:var(--font);font-size:13px;font-weight:600;padding:6px 10px;outline:none;cursor:pointer}
-.btn-red{width:100%;padding:.9rem;background:var(--red);border:none;border-radius:var(--r-sm);color:#fff;font-family:var(--font);font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 4px 16px rgba(255,56,92,.3)}
-.btn-red:hover{background:var(--red-dark);transform:translateY(-1px)}
-.btn-red:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
-.btn-out{width:100%;padding:.9rem;background:transparent;border:1.5px solid var(--border);border-radius:var(--r-sm);color:var(--err);font-family:var(--font);font-size:15px;font-weight:600;cursor:pointer;transition:all .2s}
-.btn-out:hover{background:var(--err-bg);border-color:var(--err)}
-.btn-ghost{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:.75rem;border-radius:var(--r-sm);border:1.5px solid var(--border);background:var(--bg-s);color:var(--text-1);font-family:var(--font);font-size:14px;font-weight:600;cursor:pointer;transition:all .18s;margin-bottom:.5rem}
-.btn-ghost:hover{border-color:var(--red);color:var(--red);background:var(--red-pale)}
-.badge{padding:4px 10px;border-radius:var(--r-full);font-size:11px;font-weight:700;display:inline-block}
-.badge-ok{background:var(--ok-bg);color:var(--ok)}
-.badge-warn{background:var(--warn-bg);color:var(--warn)}
-.badge-err{background:var(--err-bg);color:var(--err)}
-.badge-info{background:var(--info-bg);color:var(--info)}
-.badge-grey{background:var(--bg-s);color:var(--text-3);border:1px solid var(--border-m)}
-.empty{text-align:center;padding:2.5rem 1rem}
-.empty-ico{font-size:38px;margin-bottom:.75rem}
-.empty-txt{font-size:14px;color:var(--text-2);font-weight:500}
-.pf-f{margin-bottom:.9rem}
-.pf-f:last-child{margin-bottom:0}
-.pf-f label{font-size:11px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem;display:block}
-.pf-f input,.pf-f select{width:100%;background:var(--bg-in);border:1.5px solid var(--border);border-radius:var(--r-sm);padding:.75rem 1rem;color:var(--text-1);font-family:var(--font);font-size:14px;font-weight:500;outline:none;transition:border .18s}
-.pf-f input:focus,.pf-f select:focus{border-color:var(--red);background:var(--bg-card)}
-.textarea{width:100%;min-height:100px;background:var(--bg-in);border:1.5px solid var(--border);border-radius:var(--r-sm);padding:.85rem 1rem;color:var(--text-1);font-family:var(--font);font-size:14px;resize:none;outline:none;transition:border .18s;line-height:1.6}
-.textarea:focus{border-color:var(--red);background:var(--bg-card)}
-.textarea::placeholder{color:var(--text-3)}
-.app-footer{text-align:center;padding:1.25rem 1rem .75rem;border-top:1px solid var(--border-m);margin-top:1rem}
-.app-footer-brand{font-size:13px;font-weight:700;color:var(--text-2)}
-.app-footer-copy{font-size:11px;color:var(--text-3);margin-top:3px}
-/* HOME HERO */
-.home-hero{background:linear-gradient(135deg,#FF385C 0%,#FF7B7F 60%,#FF9A6C 100%);border-radius:var(--r-xl);padding:1.5rem;margin-bottom:1rem;position:relative;overflow:hidden}
-.home-hero::after{content:'';position:absolute;right:-20px;top:-20px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.08)}
-.h-greet{font-size:13px;font-weight:600;color:rgba(255,255,255,.75);text-transform:uppercase;letter-spacing:.06em}
-.h-name{font-size:22px;font-weight:800;color:#fff;margin:2px 0 .75rem;letter-spacing:-.4px}
-.h-date{font-size:13px;color:rgba(255,255,255,.75);display:flex;align-items:center;gap:6px}
-.h-pill{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.2);border-radius:var(--r-full);padding:4px 12px;font-size:12px;font-weight:600;color:#fff;margin-top:.75rem}
-.h-dot{width:6px;height:6px;border-radius:50%;background:#fff;animation:blink 1.8s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-/* STAT TILES */
-.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1rem}
-.stat-tile{background:var(--bg-card);border:1px solid var(--border-m);border-radius:var(--r-md);padding:1rem;box-shadow:var(--sh-sm)}
-.st-icon{width:34px;height:34px;border-radius:9px;margin-bottom:.6rem;display:flex;align-items:center;justify-content:center;font-size:17px}
-.st-lbl{font-size:11px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em}
-.st-val{font-size:21px;font-weight:800;font-family:var(--mono);margin-top:2px;letter-spacing:-.5px}
-.t-red .st-icon{background:var(--red-pale)}.t-red .st-val{color:var(--red)}
-.t-green .st-icon{background:var(--ok-bg)}.t-green .st-val{color:var(--ok)}
-.t-orange .st-icon{background:var(--warn-bg)}.t-orange .st-val{color:var(--warn)}
-.t-blue .st-icon{background:var(--info-bg)}.t-blue .st-val{color:var(--info)}
-.tl-row{display:flex;align-items:center;gap:12px;padding:.7rem 0;border-bottom:1px solid var(--border-m)}
-.tl-row:last-child{border-bottom:none;padding-bottom:0}.tl-row:first-child{padding-top:0}
-.tl-dot{width:36px;height:36px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
-.tl-info{flex:1}.tl-name{font-size:13px;font-weight:600;color:var(--text-1)}.tl-sub{font-size:12px;color:var(--text-2);margin-top:1px}
-.tl-time{font-family:var(--mono);font-size:14px;font-weight:500;color:var(--text-1)}.tl-time.pred{color:var(--ok);font-weight:600}
-/* PONTO */
-.clk-hero{background:var(--bg-card);border:1px solid var(--border-m);border-radius:var(--r-xl);padding:2rem 1.5rem 1.75rem;text-align:center;margin-bottom:1rem;box-shadow:var(--sh-sm)}
-.clk-big{font-size:50px;font-weight:800;font-family:var(--mono);color:var(--text-1);letter-spacing:-2px;line-height:1}
-.clk-date{font-size:14px;color:var(--text-2);margin-top:6px;font-weight:500}
-.step-row{display:flex;align-items:center;gap:12px;background:var(--bg-card);border:1.5px solid var(--border-m);border-radius:var(--r-md);padding:.9rem 1rem;margin-bottom:.5rem;transition:all .22s;box-shadow:var(--sh-sm)}
-.step-row.done{border-color:#C8F5CE;background:var(--ok-bg)}.step-row.active{border-color:var(--red);background:var(--red-pale);box-shadow:0 0 0 3px rgba(255,56,92,.08)}
-.step-circ{width:38px;height:38px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px;background:var(--bg-s);border:1.5px solid var(--border)}
-.step-row.done .step-circ{background:var(--ok-bg);border-color:#C8F5CE}.step-row.active .step-circ{background:var(--red-pale);border-color:var(--red-light);animation:pr 1.8s infinite}
-@keyframes pr{0%,100%{box-shadow:0 0 0 0 rgba(255,56,92,.25)}50%{box-shadow:0 0 0 6px rgba(255,56,92,0)}}
-.step-name{font-size:14px;font-weight:700;color:var(--text-1)}.step-time{font-size:12px;font-family:var(--mono);color:var(--text-2);margin-top:2px}
-.step-row.done .step-name,.step-row.done .step-time{color:var(--ok)}.step-row.active .step-name,.step-row.active .step-time{color:var(--red)}
-.step-badge{padding:4px 10px;border-radius:var(--r-full);font-size:11px;font-weight:700;flex-shrink:0}
-.step-badge.done{background:#C8F5CE;color:var(--ok)}.step-badge.active{background:var(--red-pale);color:var(--red)}
-.btn-punch{width:100%;padding:1.05rem;background:var(--red);border:none;border-radius:var(--r-md);color:#fff;font-family:var(--font);font-size:16px;font-weight:800;cursor:pointer;transition:all .22s;margin-bottom:1rem;box-shadow:0 4px 16px rgba(255,56,92,.35)}
-.btn-punch:hover{background:var(--red-dark);transform:translateY(-2px)}.btn-punch:disabled{background:var(--bg-s);color:var(--text-3);box-shadow:none;cursor:not-allowed;transform:none}.btn-punch.done{background:var(--ok);box-shadow:0 4px 16px rgba(0,138,5,.3)}
-.notif-card{background:var(--bg-card);border:1.5px solid var(--border-m);border-radius:var(--r-md);padding:1rem 1.1rem;display:flex;align-items:center;gap:12px;margin-bottom:1rem;box-shadow:var(--sh-sm)}
-.hist-row{display:flex;align-items:center;gap:12px;padding:.8rem 0;border-bottom:1px solid var(--border-m);cursor:pointer}.hist-row:last-child{border-bottom:none}
-.hist-date-box{width:42px;height:42px;border-radius:var(--r-sm);background:var(--bg-s);border:1px solid var(--border-m);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}
-.hdn{font-size:16px;font-weight:800;color:var(--text-1);line-height:1}.hds{font-size:9px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em}
-.hist-h{font-size:15px;font-weight:700;font-family:var(--mono);color:var(--text-1)}.hist-t{font-size:12px;color:var(--text-2);font-family:var(--mono);margin-top:2px}
-.sal{padding:4px 10px;border-radius:var(--r-full);font-size:11px;font-weight:700}.sal.p{background:var(--ok-bg);color:var(--ok)}.sal.n{background:var(--err-bg);color:var(--err)}.sal.z{background:var(--info-bg);color:var(--info)}
-.week-wrap{display:flex;align-items:flex-end;gap:6px;height:90px}.week-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:0}
-.whrs{font-size:9px;font-weight:700;font-family:var(--mono);color:var(--text-2);min-height:13px;margin-bottom:3px;text-align:center}
-.wbar{width:100%;border-radius:5px 5px 0 0;background:var(--bg-s);border:1.5px solid var(--border-m);transition:height .5s cubic-bezier(.34,1.56,.64,1);min-height:4px}
-.wbar.ok{background:#FFE4E8;border-color:var(--red-light)}.wbar.full{background:#DCFCE7;border-color:#6BCB87}.wbar.low{background:#FEF9C3;border-color:#E5B800}.wbar.td{border-width:2.5px}
-.wday{font-size:10px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.03em;margin-top:4px}.wday.td{color:var(--red)}
-/* GESTOR */
-.gestor-hero{background:linear-gradient(135deg,#0068B7 0%,#0EA5E9 60%,#38BDF8 100%);border-radius:var(--r-xl);padding:1.5rem;margin-bottom:1rem;position:relative;overflow:hidden}
-.gestor-hero::after{content:'';position:absolute;right:-20px;top:-20px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.08)}
-.live-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1rem}
-.live-card{background:var(--bg-card);border:1.5px solid var(--border-m);border-radius:var(--r-md);padding:.9rem;box-shadow:var(--sh-sm);cursor:pointer;transition:all .2s}
-.live-card.working{border-color:#C8F5CE;background:var(--ok-bg)}.live-card.lunch{border-color:#FDE68A;background:var(--warn-bg)}.live-card.out{border-color:var(--border-m);background:var(--bg-s)}.live-card.absent{border-color:var(--border-m)}
-.live-name{font-size:13px;font-weight:700;color:var(--text-1);margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.live-status{font-size:11px;font-weight:600;display:flex;align-items:center;gap:4px}.live-time{font-size:11px;font-family:var(--mono);color:var(--text-2);margin-top:3px}
-/* ADMIN */
-.admin-hero{background:linear-gradient(135deg,#7C3AED 0%,#9F67FF 60%,#C084FC 100%);border-radius:var(--r-xl);padding:1.5rem;margin-bottom:1rem;position:relative;overflow:hidden}
-.admin-hero::after{content:'';position:absolute;right:-20px;top:-20px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.08)}
-.admin-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.6rem;margin-bottom:1rem}
-.admin-stat{background:var(--bg-card);border:1px solid var(--border-m);border-radius:var(--r-md);padding:.75rem;text-align:center;box-shadow:var(--sh-sm)}
-.admin-stat-val{font-size:22px;font-weight:800;font-family:var(--mono);color:var(--text-1)}.admin-stat-lbl{font-size:10px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.05em;margin-top:2px}
-.user-row{display:flex;align-items:center;gap:12px;padding:.85rem 1.1rem;border-bottom:1px solid var(--border-m);cursor:pointer;transition:background .15s}
-.user-row:hover{background:var(--bg-s)}.user-row:last-child{border-bottom:none}
-.user-av{width:38px;height:38px;border-radius:50%;background:var(--red-pale);border:2px solid var(--red-light);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:var(--red);flex-shrink:0;overflow:hidden}
-.user-av img{width:100%;height:100%;object-fit:cover;border-radius:50%}
-.user-info{flex:1;min-width:0}.user-name{font-size:14px;font-weight:700;color:var(--text-1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.user-meta{font-size:12px;color:var(--text-2);margin-top:2px}
-/* SOLICITAÇÕES */
-.sol-card{background:var(--bg-card);border:1.5px solid var(--border-m);border-radius:var(--r-md);padding:1rem 1.1rem;margin-bottom:.6rem;box-shadow:var(--sh-sm)}
-.sol-card.pendente{border-color:#FDE68A}.sol-card.aprovado{border-color:#C8F5CE}.sol-card.rejeitado{border-color:var(--err-bg)}
-.sol-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.6rem}
-.sol-name{font-size:14px;font-weight:700}.sol-body{font-size:13px;color:var(--text-2);line-height:1.6;margin-bottom:.75rem}
-.sol-actions{display:flex;gap:.5rem}
-.btn-aprovar{flex:1;padding:.6rem;background:var(--ok);border:none;border-radius:var(--r-sm);color:#fff;font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer}
-.btn-rejeitar{flex:1;padding:.6rem;background:var(--err-bg);border:1px solid var(--err);border-radius:var(--r-sm);color:var(--err);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer}
-/* EXPORT */
-.exp-dates{display:flex;gap:8px;margin-bottom:.9rem}
-.exp-dates input[type=date]{flex:1;background:var(--bg-in);border:1.5px solid var(--border);border-radius:var(--r-sm);color:var(--text-1);font-family:var(--font);font-size:13px;padding:8px 10px;outline:none}
-.exp-dates input:focus{border-color:var(--red)}
-/* FEEDBACK */
-.fb-type-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:1rem}
-.fb-type-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:.85rem .5rem;border-radius:var(--r-md);border:1.5px solid var(--border-m);background:var(--bg-card);cursor:pointer;transition:all .2s;font-family:var(--font)}
-.fb-type-btn .fb-ico{font-size:22px}.fb-type-btn .fb-lbl{font-size:12px;font-weight:700;color:var(--text-2)}
-.fb-type-btn.selected{border-color:var(--red);background:var(--red-pale)}.fb-type-btn.selected .fb-lbl{color:var(--red)}
-.fb-sent{display:none;flex-direction:column;align-items:center;justify-content:center;padding:3rem 1rem;text-align:center}
-/* MODAL */
-.m-ov{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(2px)}
-.m-ov.on{display:flex}
-.modal{background:var(--bg-card);border:1px solid var(--border-m);border-radius:var(--r-xl) var(--r-xl) 0 0;padding:1.5rem;width:100%;max-width:480px;max-height:85vh;overflow-y:auto}
-.m-handle{width:36px;height:4px;border-radius:2px;background:var(--border);margin:0 auto 1.25rem}
-.m-title{font-size:19px;font-weight:800;margin-bottom:.5rem}
-.m-body-txt{font-size:14px;color:var(--text-2);line-height:1.6;margin-bottom:.75rem}
-.m-acts{display:flex;gap:.5rem;margin-top:1rem}
-.btn-mc{flex:1;padding:.8rem;background:var(--bg-s);border:1.5px solid var(--border);border-radius:var(--r-sm);color:var(--text-2);font-family:var(--font);font-size:14px;font-weight:600;cursor:pointer}
-.btn-mok{flex:1;padding:.8rem;background:var(--red);border:none;border-radius:var(--r-sm);color:#fff;font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer}
-.btn-mok.danger{background:var(--err)}.btn-mok.ok-btn{background:var(--ok)}.btn-mok.purple-btn{background:var(--purple)}
-/* TOAST */
-.toast{position:fixed;bottom:calc(var(--tab-h)+1.25rem);left:50%;transform:translateX(-50%) translateY(12px);background:#222;border-radius:var(--r-full);padding:.65rem 1.4rem;font-size:14px;font-weight:600;color:#fff;z-index:9999;opacity:0;transition:all .3s cubic-bezier(.34,1.56,.64,1);pointer-events:none;white-space:nowrap;box-shadow:0 8px 32px rgba(0,0,0,.14)}
-.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}.toast.ok{background:#1B5E20}.toast.err{background:#B71C1C}
-/* SUCCESS POPUP */
-.success-popup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.85);background:var(--bg-card);border-radius:var(--r-xl);padding:2rem 2.5rem;text-align:center;z-index:9998;opacity:0;transition:all .3s cubic-bezier(.34,1.56,.64,1);pointer-events:none;box-shadow:0 20px 60px rgba(0,0,0,.2);min-width:200px;border:2px solid var(--ok-bg)}
-.success-popup.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
-.success-popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,.25);z-index:9997;opacity:0;transition:opacity .3s;pointer-events:none}
-.success-popup-overlay.show{opacity:1}
-/* UPDATE BANNER */
-.upd-banner{position:fixed;top:0;left:0;right:0;z-index:9998;background:#FF385C;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.25rem;font-size:14px;font-weight:700;transform:translateY(-100%);transition:transform .4s cubic-bezier(.34,1.56,.64,1);box-shadow:0 4px 20px rgba(255,56,92,.5);gap:12px}
-.upd-banner.show{transform:translateY(0)}
-.upd-btn{background:#fff;border:none;border-radius:20px;color:#FF385C;font-family:var(--font);font-size:13px;font-weight:800;padding:6px 16px;cursor:pointer;flex-shrink:0}
-::-webkit-scrollbar{width:0}
-#av-file{display:none}
-</style>
+
 </head>
 <body>
 
@@ -3667,7 +3445,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       <div class="card"><div class="card-lbl">Registro de hoje</div><div class="tl-row"><div class="tl-dot" style="background:#FFF0F2">🟢</div><div class="tl-info"><div class="tl-name">Entrada</div><div class="tl-sub">Início da jornada</div></div><div class="tl-time" id="tl-e">--:--</div></div><div class="tl-row"><div class="tl-dot" style="background:#FFF8E1">🟡</div><div class="tl-info"><div class="tl-name">Saída p/ almoço</div><div class="tl-sub">Início do intervalo</div></div><div class="tl-time" id="tl-sa">--:--</div></div><div class="tl-row"><div class="tl-dot" style="background:#EDF4FF">🔵</div><div class="tl-info"><div class="tl-name">Retorno almoço</div><div class="tl-sub">Fim do intervalo</div></div><div class="tl-time" id="tl-ra">--:--</div></div><div class="tl-row"><div class="tl-dot" style="background:#FFF1EE">🔴</div><div class="tl-info"><div class="tl-name">Saída</div><div class="tl-sub">Fim da jornada</div></div><div class="tl-time" id="tl-s">--:--</div></div><div class="tl-row" style="border-bottom:none"><div class="tl-dot" style="background:#EDFFF0">🎯</div><div class="tl-info"><div class="tl-name">Saída prevista</div><div class="tl-sub">Baseada na carga horária</div></div><div class="tl-time pred" id="tl-prev">--:--</div></div></div>
       <div class="card"><div class="card-lbl">Semana atual</div><div class="week-wrap" id="week-chart"></div><div style="display:flex;justify-content:space-between;margin-top:2px;padding-top:4px;border-top:1px solid var(--border-m)" id="week-days"></div></div>
       <!-- Histórico movido para aba Meu Ponto -->
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <div class="page" id="pg-ponto">
       <div class="clk-hero"><div class="clk-big" id="clk">00:00:00</div><div class="clk-date" id="clk-date">--</div><div style="margin-top:1rem;font-size:13px;color:var(--text-2)" id="clk-st"></div></div>
@@ -3675,7 +3453,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       <button class="btn-punch" id="btn-punch" onclick="doPunch()">REGISTRAR PONTO</button>
       <div class="notif-card"><div style="font-size:22px">🔔</div><div style="flex:1"><div style="font-size:14px;font-weight:700">Lembrete de ponto</div><div style="font-size:12px;color:var(--text-2);margin-top:2px" id="notif-sub">Ativar avisos automáticos</div><div style="font-size:10px;color:var(--text-3);margin-top:3px">⚠️ Apenas com app aberto no navegador</div></div><label class="sw"><input type="checkbox" id="notif-tog" onchange="toggleNotif()"><div class="sw-track"></div><div class="sw-thumb"></div></label></div>
       <div class="card"><div class="card-lbl">Histórico de pontos</div><div id="hist-header"></div><div id="hist-list"></div></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <div class="page" id="pg-config">
       <div class="pg-title">Configurações</div><div class="pg-sub">Personalize o app</div>
@@ -3690,10 +3468,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       <div class="sg-title">Suporte</div>
       <div class="slist"><div class="srow" onclick="navColab('feedback',4)" style="cursor:pointer"><div class="srow-ico" style="background:var(--red-pale)">💬</div><div class="srow-info"><div class="srow-lbl">Enviar feedback</div><div class="srow-sub">Sugestões, bugs ou elogios</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div></div>
       <div class="sg-title">Atualização</div>
-      <div class="slist"><div class="srow" onclick="manualUpdate()" style="cursor:pointer"><div class="srow-ico" style="background:var(--red-pale)">🔄</div><div class="srow-info"><div class="srow-lbl">Verificar atualização</div><div class="srow-sub" id="update-status">Versão <span class="app-ver">5.0.0</span></div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div><div class="srow" onclick="forceReload()" style="cursor:pointer"><div class="srow-ico" style="background:var(--info-bg)">⚡</div><div class="srow-info"><div class="srow-lbl">Forçar recarregamento</div><div class="srow-sub">Limpa cache e recarrega</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div></div>
+      <div class="slist"><div class="srow" onclick="manualUpdate()" style="cursor:pointer"><div class="srow-ico" style="background:var(--red-pale)">🔄</div><div class="srow-info"><div class="srow-lbl">Verificar atualização</div><div class="srow-sub" id="update-status">Versão <span class="app-ver">5.0.1</span></div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div><div class="srow" onclick="forceReload()" style="cursor:pointer"><div class="srow-ico" style="background:var(--info-bg)">⚡</div><div class="srow-info"><div class="srow-lbl">Forçar recarregamento</div><div class="srow-sub">Limpa cache e recarrega</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div></div>
       <div class="sg-title">Dados</div>
       <div class="slist"><div class="srow" onclick="confirmDeleteAll()" style="cursor:pointer"><div class="srow-ico" style="background:var(--err-bg)">🗑️</div><div class="srow-info"><div class="srow-lbl" style="color:var(--err)">Apagar meus registros</div><div class="srow-sub">Ação irreversível</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <div class="page" id="pg-feedback">
       <div class="pg-title">Feedback</div><div class="pg-sub">Sua opinião melhora o app</div>
@@ -3703,7 +3481,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
         <button class="btn-red" onclick="sendFeedback()" id="fb-send-btn">Enviar feedback</button>
       </div>
       <div class="fb-sent" id="fb-sent-wrap"><div style="font-size:52px;margin-bottom:1rem">🎉</div><div style="font-size:20px;font-weight:800;margin-bottom:.5rem">Feedback enviado!</div><div style="font-size:14px;color:var(--text-2)">Paulo Santos irá analisar sua sugestão.</div><button class="btn-red" style="margin-top:1.5rem;max-width:200px" onclick="resetFeedback()">Enviar outro</button></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <div class="page" id="pg-conta">
       <div style="background:var(--bg-card);border:1px solid var(--border-m);border-radius:var(--r-xl);padding:1.75rem 1.25rem 1.25rem;text-align:center;margin-bottom:1rem;box-shadow:var(--sh-sm)">
@@ -3722,7 +3500,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       <button class="btn-red" onclick="saveProfile()" style="margin-bottom:.6rem">Salvar perfil</button>
       <button class="btn-out" onclick="doLogout()">Sair da conta</button>
       <div class="card" style="margin-top:1rem"><div class="card-lbl">Solicitações de ajuste de ponto</div><div id="minhas-solicitacoes"></div><button class="btn-ghost" onclick="openSolicitacao()" style="margin-top:.5rem">➕ Nova solicitação</button></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
   </div>
   <div class="tabs">
@@ -3745,7 +3523,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
         <div class="card-lbl">Banco de horas — mês atual</div>
         <div id="g-banco-list"><div style="font-size:13px;color:var(--text-3);text-align:center;padding:.5rem">Carregando...</div></div>
       </div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <div class="page" id="pg-g-hist">
       <div class="pg-title">Histórico</div><div class="pg-sub">Registros do setor</div>
@@ -3759,12 +3537,12 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
         <button class="btn-ghost" onclick="loadGestorHist()" style="margin-bottom:0">🔍 Filtrar período</button>
       </div>
       <div id="g-hist-list"></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <div class="page" id="pg-g-sol">
       <div class="pg-title">Solicitações</div><div class="pg-sub">Ajustes de ponto pendentes</div>
       <div id="g-sol-list"></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <div class="page" id="pg-g-perfil">
       <div class="pg-title">Meu perfil</div>
@@ -3846,7 +3624,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       </div><!-- /admin-brand-body -->
       </div>
       <button class="btn-out" onclick="doLogout()" style="margin-top:.5rem">Sair da conta</button>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
   </div>
   <div class="tabs">
@@ -3870,7 +3648,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
       <div class="admin-stats"><div class="admin-stat"><div class="admin-stat-val" id="a-total-users">--</div><div class="admin-stat-lbl">Usuários</div></div><div class="admin-stat"><div class="admin-stat-val" id="a-total-setores">--</div><div class="admin-stat-lbl">Setores</div></div><div class="admin-stat"><div class="admin-stat-val" id="a-total-pendentes">--</div><div class="admin-stat-lbl">Pendentes</div></div></div>
       <div class="card"><div class="card-lbl">Ações rápidas</div><div class="slist"><div class="srow" onclick="navAdmin('a-users',1)" style="cursor:pointer"><div class="srow-ico" style="background:var(--red-pale)">👥</div><div class="srow-info"><div class="srow-lbl">Gerenciar usuários</div><div class="srow-sub">Promover, editar, excluir</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div><div class="srow" onclick="navAdmin('a-setores',3)" style="cursor:pointer"><div class="srow-ico" style="background:var(--info-bg)">🏢</div><div class="srow-info"><div class="srow-lbl">Gerenciar setores</div><div class="srow-sub">Criar e atribuir gestores</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div><div class="srow" onclick="navAdmin('a-sol',2)" style="cursor:pointer"><div class="srow-ico" style="background:var(--warn-bg)">📝</div><div class="srow-info"><div class="srow-lbl">Solicitações de ajuste</div><div class="srow-sub" id="a-pendentes-lbl">Ver todas</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div><div class="srow" onclick="navAdmin('a-pontos',4)" style="cursor:pointer"><div class="srow-ico" style="background:var(--ok-bg)">🕐</div><div class="srow-info"><div class="srow-lbl">Todos os pontos</div><div class="srow-sub">Visão global da empresa</div></div><svg width="16" height="16" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div></div></div>
       <button class="btn-out" onclick="doLogout()" style="margin-top:.5rem">Sair da conta</button>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <div class="page" id="pg-a-users">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><button onclick="navAdmin('a-dash',0)" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-2)">←</button><div class="pg-title" style="margin-bottom:0">Usuários</div></div>
@@ -3879,18 +3657,18 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
         <button onclick="toggleFiltroStatus()" id="btn-filtro-pendentes" style="padding:.6rem .9rem;background:var(--warn-bg);border:1.5px solid var(--warn);border-radius:var(--r-sm);color:var(--warn);font-family:var(--font);font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap" title="Ver pendentes">⏳ Pendentes</button>
       </div>
       <div class="slist" id="users-list"><div class="empty"><div class="empty-ico">👥</div><div class="empty-txt">Carregando...</div></div></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <div class="page" id="pg-a-sol">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><button onclick="navAdmin('a-dash',0)" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-2)">←</button><div class="pg-title" style="margin-bottom:0">Solicitações</div></div>
       <div id="a-sol-list"><div class="empty"><div class="empty-ico">📝</div><div class="empty-txt">Carregando...</div></div></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <div class="page" id="pg-a-setores">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><button onclick="navAdmin('a-dash',0)" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-2)">←</button><div class="pg-title" style="margin-bottom:0">Setores</div></div>
       <div class="card"><div class="card-lbl">Criar novo setor</div><div class="pf-f"><input type="text" id="novo-setor-nome" placeholder="Nome do setor (ex: Produção, TI...)"></div><button class="btn-red" onclick="criarSetor()">Criar setor</button></div>
       <div id="setores-list"></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <div class="page" id="pg-a-pontos">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><button onclick="navAdmin('a-dash',0)" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-2)">←</button><div class="pg-title" style="margin-bottom:0">Todos os pontos</div></div>
@@ -3900,7 +3678,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
         <button class="btn-ghost" onclick="exportRelatorioAdmin()" style="margin-bottom:0;border-color:var(--ok);color:var(--ok)">📄 Exportar relatório consolidado (PDF)</button>
       </div>
       <div id="a-pontos-list"></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 PontiFy · Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
   </div>
   <div class="tabs">
@@ -3935,7 +3713,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
         <div class="card-lbl">Empresas cadastradas</div>
         <div id="s-emp-list"><div class="empty"><div class="empty-ico">🏢</div><div class="empty-txt">Carregando...</div></div></div>
       </div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <!-- NOVA EMPRESA -->
     <div class="page" id="pg-s-nova">
@@ -3950,13 +3728,13 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-1);f
         </div>
       </div>
       <button class="btn-red" style="background:#7C3AED;box-shadow:0 4px 16px rgba(124,58,237,.35)" onclick="criarEmpresa()">Criar empresa</button>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
     <!-- DETALHE EMPRESA -->
     <div class="page" id="pg-s-emp">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><button onclick="navSuper('s-dash',0)" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-2)">←</button><div class="pg-title" style="margin-bottom:0" id="s-emp-title">Empresa</div></div>
       <div id="s-emp-detail"></div>
-      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 Paulo Santos · Versão <span class="app-ver">5.0.0</span></div></div>
+      <div class="app-footer"><div class="app-footer-brand">PontiFy</div><div class="app-footer-copy">© 2025 Paulo Santos · Versão <span class="app-ver">5.0.1</span></div></div>
     </div>
   </div>
   <div class="tabs">
